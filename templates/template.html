@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<title>Chong Yi Chen's Personal Portfolio</title>
+
+	<head>
+		<meta charset="utf-8" content="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/site-template.css') }}">
+        {% block css %}{% endblock %}
+		<link type="text/css" rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	</head>
+	<body>
+		<div class="page-header" id="title-page-header">
+			<div id="header-logo-container">
+			</div>
+            <div id="menu-bar-container" class="noselect">
+                <a href="/">
+                    <div id="home-button" class="header-menu-button">
+                        <i class="fa fa-lg fa-home"></i>
+                    </div>
+                </a>
+				<a href="/about">
+                    <div class="header-menu-button">
+                        <span>About</span>
+                    </div>
+                </a>
+                <a href="/projects">
+                    <div class="header-menu-button">
+                        <span>Projects</span>
+                    </div>
+                </a>
+                <a href="/contact">
+				    <div class="header-menu-button"><span>Contact</span></div>
+                </a>
+			</div>
+		</div>
+		<div id="page-top" class="spacer"></div>
+		{% block content %}{% endblock %}
+		<div class="slide-container evenly-justify footer noselect" id="social-media-btns">
+			<div class="socialbtns">
+				<ul>
+					<li>
+                        <a href="https://github.com/yichenchong" class="fa fa-lg fa-github"></a>
+                    </li>
+					<li>
+                        <a href="https://www.linkedin.com/in/yc-chong/" class="fa fa-lg fa-linkedin"></a>
+                    </li>
+					<li>
+                        <a href="mailto:yichenchong@yahoo.com" class="fa fa-lg fa-envelope"></a>
+                    </li>
+					<li>
+                        <a href="#" class="fa fa-lg fa-file"></a>
+                    </li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

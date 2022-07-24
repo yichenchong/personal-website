@@ -1,0 +1,37 @@
+{% extends "template.html" %}
+{% block css %}
+	<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/title-slide.css') }}">
+{% endblock %}
+{% block content %}
+	<div class="slide around-justify noselect short-slide">
+		<div class="slide-container evenly-justify">
+			<div id="loading-title-container">
+				<div id="hello_world_message">
+					> <span class="typeup" id="title_typeup"></span>
+				</div>
+				<div class="spacer"></div>
+				<div class="subtitle" id="title_subtitle_0">
+					My name is
+				</div>
+				<div id="title_name">
+					Yi Chen Chong
+				</div>
+				<div class="spacer"></div>
+				<div class="subtitle">
+					<span id="title_subtitle_1">I'm a 
+						<b>Joint Maths and Computing student</b>
+						at <b>Imperial College London</b>.
+					</span>
+					<div class="spacer"></div>
+					<div class="double_line_height_when_screen_small">
+						<span id="title_subtitle_2">
+							I'm interested in <span id="interests"></span>
+							<span id="blinking-cursor">|</span>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="{{ url_for('static', filename='js/landing-page.js') }}"></script>
+{% endblock %}

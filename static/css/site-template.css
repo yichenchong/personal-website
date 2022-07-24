@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500&family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@700&display=swap');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+
+  /********/
+ /* defs */
+/********/
+:root {
+    /* color-definitions */
+    --terminal-green: #4af626;
+
+    --base-color: #111;
+    --bright-accent: var(--terminal-green);
+    --main-text: #dddddd;
+    --sub-text: #aaa;
+    --accent: #aaa;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@-webkit-keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes blink {
+    from, to { opacity: 0;}
+    50% {opacity: 1;}
+}
+
+  /********/
+ /* tags */
+/********/
+html {
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 100vh;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+    background-color: var(--base-color);
+    background-image: linear-gradient(to bottom right, var(--base-color), black)
+}
+
+a, a:hover {
+	text-decoration: none;
+    color: inherit;
+}
+
+  /***********/
+ /* classes */
+/***********/
+
+/** header **/
+.page-header {
+    min-height: 30px;
+    height: min(5vh, 3vw);
+    width: 100vw;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    background-color: var(--base-color);
+    z-index: 1;
+    color: var(--main-text);
+    position: fixed;
+    box-shadow: 0 2px 20px 1px rgba(255, 255, 255, 0.05);
+}
+
+.header-menu-button {
+    width: max(7.5vw, 80px);
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans';
+    font-size: max(min(2vh, 1vw), 10pt);
+    text-align: center;
+}
+.header-menu-button:hover {
+    background-color: var(--main-text);
+    color: black;
+    transition: background-color 300ms, color 100ms;
+}
+.header-menu-button:after {
+    content: '';
+    position: absolute;
+    width: max(7.5vw, 80px);
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0.3vh;
+    background-color: var(--bright-accent);
+    transform-origin: bottom;
+    transition: transform 0.25s ease-out;
+}
+.header-menu-button:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom;
+}
+
+/** footer **/
+
+.footer {
+    height: 15vh;
+}
+
+.socialbtns, .socialbtns ul, .socialbtns li {
+    margin: 0;
+    padding: min(1.5vh, 0.6vw);
+    text-align: center;
+}
+
+.socialbtns li {
+    list-style: none outside none;
+    display: inline-block;
+}
+
+.socialbtns .fa {
+    width: max(min(4.8vh, 2.4vw), 24px);
+    height: max(min(3.36vh, 1.68vw), 16.8px);
+    color: #FFF;
+    background-color: #000;
+    border: 1px solid #FFF;
+    padding-top: max(min(1.6vh, 0.8vw), 8px);
+    border-radius: max(min(2.64vh, 1.32vw), 13.2px);
+    -moz-border-radius: max(min(2.64vh, 1.32vw), 13.2px);
+    -webkit-border-radius: max(min(2.64vh, 1.32vw), 13.2px);
+    -o-border-radius: max(min(2.64vh, 1.32vw), 13.2px);
+    font-size: max(min(2vh, 1vw), 10px);
+}
+
+.socialbtns .fa:hover {
+    color: #000;
+    background-color: #FFF;
+    border: 1px solid var(--accent);
+}
+
+/** slides **/
+
+.slide {
+    height: 95vh;
+    width: 100vw;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    margin: 0;
+    padding: 0 0 0 0;
+    scroll-snap-align: start;
+    color: var(--main-text);
+}
+
+.short-slide {
+    height: 70vh;
+}
+
+.slide-container {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.spacer {
+    height: 5vh;
+}
+
+/** options **/
+
+.evenly-justify {
+    justify-content: space-evenly;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.around-justify {
+    justify-content: space-around;
+}
+
+  /**************/
+ /* ID element */
+/**************/
+
+/** header **/
+#page-top {
+    height: min(5vh, 3vw);
+    min-height: 50px;
+}
+
+#header-logo-container {
+    height: 100%;
+    width: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+#menu-bar-container {
+    width: max(30vw, 360px);
+    height: 90%;
+    padding: 0 2.5vw;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+
+#home-button {
+    width: max(5vw, 30px);
+    margin-left: 0;
+    padding-left: 0;
+}
+
+#home-button:after {
+    width: max(5vw, 30px);
+}
+
+  /*****************/
+ /* media queries */
+/*****************/
+
+/** both header and footer **/
+
+@media only screen and (orientation: portrait) {
+
+    /** for phone screens **/
+
+    /** header **/
+
+    @media (max-width: 380px) {
+        .page-header {
+            overflow-x: scroll;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    }
+
+    .page-header {
+        height: 8vh;
+    }
+
+    /** footer **/
+
+    .socialbtns, .socialbtns ul, .socialbtns li {
+        margin: 0;
+        padding: min(0.6vw, 0.3vh);
+        text-align: center;
+    }
+    
+    .socialbtns li {
+        list-style: none outside none;
+        display: inline-block;
+    }
+    
+    .socialbtns .fa {
+        width: max(min(4.8vw, 2.4vh), 24px);
+        height: max(min(3.36vw, 1.68vh), 16.8px);
+        color: #FFF;
+        background-color: #000;
+        border: 1px solid #FFF;
+        padding-top: max(min(1.6vw, 0.8vh), 8px);
+        border-radius: max(min(2.64vw, 1.32vh), 13.2px);
+        -moz-border-radius: max(min(2.64vw, 1.32vh), 13.2px);
+        -webkit-border-radius: max(min(2.64vw, 1.32vh), 13.2px);
+        -o-border-radius: max(min(2.64vw, 1.32vh), 13.2px);
+        font-size: max(min(2vw, 1vh), 10px);
+    }
+    
+    .socialbtns .fa:hover {
+        color: #000;
+        background-color: #FFF;
+        border: 1px solid var(--accent);
+    }
+}
+
+/** header **/
+
+@media screen and (max-width: 650px) {
+    /** header adjustments for small screens **/
+    #header-logo-container {
+        display: none;
+    }
+}
+
+/** footer **/
+
+@media only screen and (orientation: landscape) and (max-height: 400px) {
+    /** social button adjustment for short widescreen **/
+    .socialbtns .fa {
+        width: 6vh;
+        height: 4.2vh;
+        border-radius: 4vh;
+    }
+}

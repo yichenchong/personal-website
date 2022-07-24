@@ -1,0 +1,83 @@
+  /***********/
+ /* classes */
+/***********/
+
+.subtitle {
+    color: var(--sub-text);
+    font-family: 'Open Sans';
+    font-size: max(min(2vw, 2.5vh), 10pt);
+}
+
+  /**************/
+ /* ID element */
+/**************/
+
+#loading-title-container {
+    width: 60vw;
+}
+
+#hello_world_message {
+    font-family: 'Fira Mono', 'Avenir', 'Bauhaus 93';
+    font-size: max(min(6vh, 3vw), 14pt);
+    color: var(--bright-accent);
+    width: 60vw;
+    white-space: nowrap;
+}
+
+#title_subtitle_0 {
+    animation: 1s ease 2s 1 normal both fadeIn;
+    -webkit-animation: 1s ease 2s 1 normal both fadeIn;
+    font-style: oblique;
+    font-size: max(2vw, 10pt);
+}
+
+#title_name {
+    animation: 1s ease 2s 1 normal both fadeIn;
+    -webkit-animation: 1s ease 2s 1 normal both fadeIn;
+    font-family: 'Exo 2';
+    font-weight: 700;
+    font-size: max(min(8vh, 4vw), 16pt);
+}
+
+#title_subtitle_1 {
+    animation: 1s ease 3s 1 normal both fadeIn;
+    -webkit-animation: 1s ease 3s 1 normal both fadeIn;
+    font-size: 90%;
+    color: var(--sub-text);
+}
+
+#title_subtitle_1 b {
+    color: var(--main-text);
+}
+
+#title_subtitle_2 {
+    animation: 1s ease 5s 1 normal both fadeIn;
+    -webkit-animation: 1s ease 5s 1 normal both fadeIn;
+    color: var(--sub-text);
+    height: 3em;
+}
+
+#interests {
+    font-weight: bolder;
+    color: var(--main-text);
+}
+
+#blinking-cursor {
+    animation: blink 1s infinite step-end;
+    font-size: 130%;
+    position: relative;
+    top:-2px;
+    left: -2px;
+}
+
+  /*****************/
+ /* media queries */
+/*****************/
+
+@media screen and (orientation: portrait) and (max-width: 400px) {
+    .double_line_height_when_screen_small {
+        margin: 0;
+        padding: 0;
+        min-height: 4em;
+    }
+}
