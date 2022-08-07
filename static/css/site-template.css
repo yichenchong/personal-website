@@ -1,5 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500&family=Open+Sans&display=swap');
+/** cdn fonts **/
+@import url('http://fonts.cdnfonts.com/css/open-sans');
+@import url('http://fonts.cdnfonts.com/css/fira-mono?styles=19417');
+@import url('http://fonts.cdnfonts.com/css/exo-3?styles=20224');
+
+/** google fonts **/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500');
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@700&display=swap');
+
+/** other imports **/
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
 
   /********/
@@ -47,8 +56,12 @@ body {
     max-width: 100%;
     overflow-x: hidden;
     scroll-snap-type: y mandatory;
-    background-color: var(--base-color);
-    background-image: linear-gradient(to bottom right, var(--base-color), black)
+    background-color: black;
+    font-size: max(min(1.5vw, 1.8vh), 10pt);
+    font-family: 'Open Sans', sans-serif;
+    color: var(--main-text);
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
 a, a:hover {
@@ -63,7 +76,7 @@ a, a:hover {
 /** header **/
 .page-header {
     min-height: 30px;
-    height: min(5vh, 3vw);
+    height: min(5vh, 5vw);
     width: 100vw;
     display: flex;
     flex-flow: row nowrap;
@@ -77,6 +90,12 @@ a, a:hover {
     box-shadow: 0 2px 20px 1px rgba(255, 255, 255, 0.05);
 }
 
+.page-title {
+    padding-left: 5%;
+    line-height: 3em;
+    font-size: min(max(min(8vw, 10vh), 20pt), 60pt)
+}
+
 .header-menu-button {
     width: max(7.5vw, 80px);
     height: 100%;
@@ -85,7 +104,7 @@ a, a:hover {
     justify-content: space-around;
     margin: 0;
     padding: 0;
-    font-family: 'Open Sans';
+    font-family: 'Open Sans', sans-serif;
     font-size: max(min(2vh, 1vw), 10pt);
     text-align: center;
 }
@@ -109,11 +128,64 @@ a, a:hover {
     transform: scaleX(1);
     transform-origin: bottom;
 }
+.title-logo {
+    font-family: 'Fira Mono', 'Avenir', 'Bauhaus 93', monospace;
+    color: var(--bright-accent);
+    width: 60vw;
+    white-space: nowrap;
+    padding: 2vw;
+    padding: 2vw;
+}
+
+/** body **/
+
+.subtitle {
+    color: var(--sub-text);
+    font-family: 'Open Sans', sans-serif;
+    font-size: max(min(2vw, 2.5vh), 10pt);
+}
+
+.hovertext {
+    position: relative;
+    text-decoration: underline dotted var(--accent) 1px;
+}
+
+.hovertext:before {
+    min-width: 40vw;
+    content: attr(data-hover);
+    visibility: hidden;
+    opacity: 0;
+    background-color: black;
+    color: #fff;
+    border-radius: 5px;
+    padding: 1vh 1vw;
+    transition: opacity 0.2s ease-in-out;
+    max-height: 40vh;
+
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 110%;
+}
+
+.hovertext:hover:before {
+    opacity: 1;
+    visibility: visible;
+}
+
 
 /** footer **/
 
 .footer {
     height: 15vh;
+    min-width: 100vw;
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 0;
+    padding: 0 0 0 0;
+    scroll-snap-align: start;
+    color: var(--main-text);
+    margin: 1vh;
 }
 
 .socialbtns, .socialbtns ul, .socialbtns li {
@@ -150,11 +222,10 @@ a, a:hover {
 /** slides **/
 
 .slide {
-    height: 95vh;
+    min-height: 95vh;
     width: 100vw;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
     margin: 0;
     padding: 0 0 0 0;
     scroll-snap-align: start;
@@ -192,6 +263,24 @@ a, a:hover {
 
 .around-justify {
     justify-content: space-around;
+}
+.center-justify {
+    justify-content: center;
+}
+
+.two-column {
+    columns: 2;
+}
+.three-column {
+    columns: 3;
+}
+.four-column {
+    columns: 4;
+}
+
+.center-text-container {
+    justify-self: center;
+    height: 1em;
 }
 
   /**************/
@@ -231,6 +320,14 @@ a, a:hover {
     width: max(5vw, 30px);
 }
 
+#hello_world_message {
+    font-family: 'Fira Mono', 'Avenir', 'Bauhaus 93', monospace;
+    font-size: max(min(6vh, 3vw), 14pt);
+    color: var(--bright-accent);
+    width: 60vw;
+    white-space: nowrap;
+}
+
   /*****************/
  /* media queries */
 /*****************/
@@ -253,6 +350,16 @@ a, a:hover {
 
     .page-header {
         height: 8vh;
+    }
+    #page-top {
+        height: 8vh;
+    }
+
+    /** body **/
+    .hovertext:before {
+        overflow: scroll;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
     }
 
     /** footer **/

@@ -1,3 +1,5 @@
+import helper.resume_loader.res_loader as rl
+
 from flask import Flask, render_template
 app = Flask(__name__)
 
@@ -9,7 +11,7 @@ def landing_page():
 
 @app.route('/about/')
 def about_page():
-    return render_template('about-page.html')
+    return render_template('about-page.html', education=rl.get_education()[::-1])
 
 
 @app.route('/projects/')

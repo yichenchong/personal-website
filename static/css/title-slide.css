@@ -1,13 +1,3 @@
-  /***********/
- /* classes */
-/***********/
-
-.subtitle {
-    color: var(--sub-text);
-    font-family: 'Open Sans';
-    font-size: max(min(2vw, 2.5vh), 10pt);
-}
-
   /**************/
  /* ID element */
 /**************/
@@ -34,7 +24,7 @@
 #title_name {
     animation: 1s ease 2s 1 normal both fadeIn;
     -webkit-animation: 1s ease 2s 1 normal both fadeIn;
-    font-family: 'Exo 2';
+    font-family: 'Exo 2', 'Exo', monospace;
     font-weight: 700;
     font-size: max(min(8vh, 4vw), 16pt);
 }

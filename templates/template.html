@@ -13,6 +13,9 @@
 	<body>
 		<div class="page-header" id="title-page-header">
 			<div id="header-logo-container">
+				<div class="title-logo">
+					{%block page_header_title %}{% endblock %}
+				</div>
 			</div>
             <div id="menu-bar-container" class="noselect">
                 <a href="/">
@@ -37,22 +40,24 @@
 		</div>
 		<div id="page-top" class="spacer"></div>
 		{% block content %}{% endblock %}
-		<div class="slide-container evenly-justify footer noselect" id="social-media-btns">
-			<div class="socialbtns">
-				<ul>
-					<li>
-                        <a href="https://github.com/yichenchong" class="fa fa-lg fa-github"></a>
-                    </li>
-					<li>
-                        <a href="https://www.linkedin.com/in/yc-chong/" class="fa fa-lg fa-linkedin"></a>
-                    </li>
-					<li>
-                        <a href="mailto:yichenchong@yahoo.com" class="fa fa-lg fa-envelope"></a>
-                    </li>
-					<li>
-                        <a href="#" class="fa fa-lg fa-file"></a>
-                    </li>
-				</ul>
+		<div class="footer">
+			<div class="slide-container evenly-justify noselect" id="social-media-btns">
+				<div class="socialbtns">
+					<ul>
+						<li>
+							<a href="https://github.com/yichenchong" class="fa fa-lg fa-github"></a>
+						</li>
+						<li>
+							<a href="https://www.linkedin.com/in/yc-chong/" class="fa fa-lg fa-linkedin"></a>
+						</li>
+						<li>
+							<a href="mailto:yichenchong@yahoo.com" class="fa fa-lg fa-envelope"></a>
+						</li>
+						<li>
+							<a href="#" class="fa fa-lg fa-file"></a>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</body>
