@@ -15,7 +15,8 @@ def about_page():
         'about-page.html',
         education=rl.get_education()[::-1],
         experience=rl.get_experience()[::-1],
-        certification=rl.get_certification()[::-1]
+        certification=rl.get_certification()[::-1],
+        skills=rl.get_skills()
     )
 
 
