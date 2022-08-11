@@ -1,9 +1,28 @@
-/** classes **/
+.about-blurb {
+    width: 80%;
+    text-align: center;
+    padding-top: 3em;
+    padding-bottom: 5em;
+    widows: 5;
+    color: #adadad;
+}
+.about-blurb.subtitle {
+    font-size: min(max(min(2vw, 2.5vh), 14pt), 25pt);
+}
+.about-blurb.subtitle .highlight {
+    color: var(--main-text);
+    font-weight: 550;
+}
+
 .content-category {
     width: 80%;
     padding: 1vw;
     color: var(--main-text);
     flex-flow: column nowrap;
+    padding-top: 3em;
+}
+.content-category .subtitle {
+    font-size: max(min(2.5vw, 3vh), 20pt);
 }
 .content-container {
     margin: 1vw;
@@ -31,12 +50,12 @@
     flex-flow: column nowrap;
     justify-content: center;
     margin: 1vh 2vw;
-    min-width: 24px;
+    min-width: 36px;
     padding: 10px;
 }
 .content-container .content-heading .content-text {
     width: 90%;
-    font-size: max(min(1.5vw, 2vh), 12pt);
+    font-size: max(min(1.5vw, 2vh), 16pt);
     display: flex;
     flex-flow: column nowrap;
 }
@@ -49,7 +68,7 @@
     flex-flow: column nowrap;
     justify-content: center;
     padding: 2vw 2vh;
-    font-size: min(3vh, 3vw);
+    font-size: max(min(3vh, 3vw), 16pt);
 }
 .content-container .active .content-coll-indicator {
     content: "\02796";
@@ -63,20 +82,23 @@
     font-size: 100%;
     font-weight: bold;
     padding-bottom: 0.5em;
+    line-height: 100%;
 }
 .content-container .content-heading .content-text .content-subtitle {
     font-size: 90%;
     opacity: 80%;
+    line-height: 111%;
 }
 .content-container .content-heading .content-text .content-dates {
     padding-top: 0.5em;
     color: var(--sub-text);
-    font-size: max(75%, 9pt);
+    font-size: max(75%, 12pt);
+    line-height: 120%;
 }
 .content-container .content-expand {
     display: flex;
     flex-flow: row nowrap;
-    font-size: max(min(1.5vw, 2vh), 11pt);
+    font-size: max(min(1.5vw, 2vh), 16pt);
     max-height: 0px;
     overflow: hidden;
     transition: max-height 0.2s ease-out, padding-bottom 0.2s ease-out;
@@ -105,22 +127,69 @@
     font-weight: bold;
     padding-top: 0.5em;
 }
-
-ul {
-    padding-left: 3vw;
-    margin: 0;
-    text-align: left;
-}
-ul li {
-    padding-right: 5px;
-}
-
-.comment {
-    font-size: 80%;
-}
 .content-main-text a:hover {
     opacity: 60%;
 }
 .content-main-text a {
     text-decoration: underline
+}
+
+.skills-container {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-right: 0;
+    padding-top: 2em;
+}
+.skills-container .skill {
+    margin: 1vh 2vw;
+    height: 2em;
+    line-height: 2em;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    position: relative;
+    background-color: #444;
+    border-radius: 1em;
+}
+.skills-container .skill .img-container {
+    position: relative;
+    left: -1vw;
+    max-height: 100%;
+}
+.skills-container .skill .img-container img {
+    object-fit: contain;
+    max-height: 100%;
+}
+.skills-container .skill .text {
+    margin: auto 2vw;
+    margin-left: 0;
+}
+
+
+
+@media only screen and (orientation: portrait) and (max-width: 950px) {
+    .about-blurb {
+        width: 80%;
+    }
+    
+    .content-category .subtitle {
+        font-size: max(min(1.5vw, 2vh), 18pt);
+    }
+    .content-container .content-heading .content-text {
+        font-size: max(min(1.5vw, 2vh), 12pt);
+    }
+    .content-container .content-heading .content-coll-indicator {
+        font-size: max(min(3vh, 3vw), 15pt);
+    }
+    .content-container .content-heading .content-text .content-dates {
+        font-size: max(75%, 10pt);
+    }
+    .content-container .content-expand .content-main-text {
+        font-size: max(min(1.5vw, 2vh), 11pt);
+    }
+    .content-container .content-heading .content-logo img {
+        border-radius: 20%;
+    }
 }

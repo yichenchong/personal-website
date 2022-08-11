@@ -93,7 +93,7 @@ a, a:hover {
 .page-title {
     padding-left: 5%;
     line-height: 3em;
-    font-size: min(max(min(8vw, 10vh), 20pt), 60pt)
+    font-size: min(max(min(8vw, 15vh), 20pt), 40pt)
 }
 
 .header-menu-button {
@@ -142,7 +142,7 @@ a, a:hover {
 .subtitle {
     color: var(--sub-text);
     font-family: 'Open Sans', sans-serif;
-    font-size: max(min(2vw, 2.5vh), 10pt);
+    font-size: max(min(2vw, 2.5vh), 12pt);
 }
 
 .hovertext {
@@ -171,6 +171,21 @@ a, a:hover {
 .hovertext:hover:before {
     opacity: 1;
     visibility: visible;
+}
+
+/** classes **/
+
+ul {
+    padding-left: 3vw;
+    margin: 0;
+    text-align: left;
+}
+ul li {
+    padding-right: 5px;
+}
+
+.comment {
+    font-size: 80%;
 }
 
 
@@ -222,7 +237,6 @@ a, a:hover {
 /** slides **/
 
 .slide {
-    min-height: 95vh;
     width: 100vw;
     display: flex;
     flex-flow: column nowrap;
@@ -231,14 +245,22 @@ a, a:hover {
     scroll-snap-align: start;
     color: var(--main-text);
 }
+.full-slide {
+    height: 80vh;
+}
 
 .short-slide {
-    height: 70vh;
+    height: 50vh;
+}
+
+.shortest-slide {
+    min-height: 30vh;
 }
 
 .slide-container {
     display: flex;
     flex-flow: row nowrap;
+    height: 50%;
 }
 
 .spacer {
@@ -337,6 +359,13 @@ a, a:hover {
 @media only screen and (orientation: portrait) {
 
     /** for phone screens **/
+    .slide:not(.shortest-slide) {
+        min-height: 95vh;
+    }
+    body .shortest-slide {
+        min-height: 30vh;
+    }
+
 
     /** header **/
 

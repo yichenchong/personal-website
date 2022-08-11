@@ -11,7 +11,12 @@ def landing_page():
 
 @app.route('/about/')
 def about_page():
-    return render_template('about-page.html', education=rl.get_education()[::-1])
+    return render_template(
+        'about-page.html',
+        education=rl.get_education()[::-1],
+        experience=rl.get_experience()[::-1],
+        certification=rl.get_certification()[::-1]
+    )
 
 
 @app.route('/projects/')

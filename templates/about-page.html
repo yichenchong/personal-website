@@ -5,32 +5,51 @@
     <div class="page-title">
         About Me
     </div>
+    <div class="slide shortest-slide">
+        <div class="slide-container center-justify">
+            <div class="subtitle about-blurb">
+                I grew up in a diverse international background, and consequently,
+                developed a <span class="highlight">wide variety of interests</span>. I'm a huge
+                <span class="highlight">tech enthusiast</span>, and I love to
+                <span class="highlight">solve problems</span> and <span class="highlight">code</span>.
+                My tech interests range from <span class="highlight">data science</span> to
+                <span class="highlight">full-stack development</span>,
+                and I also engage in <span class="highlight">engineering, design, and&nbsp;business.</span>
+                <br/><br/>
+                I'm always <span class="highlight">looking for new opportunities</span>
+                to extend and use my skills, so if my background sounds
+                like a good fit for you, contact me and let&nbsp;me&nbsp;know!
+            </div>
+        </div>
+    </div>
     <div class="slide">
         <div class="slide-container center-justify">
             <div class="content-category">
-                <div class="subtitle">Education</div>
-                {% for item in education %}
-                    <div class="content-container">
-                        <div class="content-heading">
-                            <div class="content-logo">
-                                <img width="100%" src="{{ item.image }}" alt="{{ item.place }} logo">
+                {% if education is defined %}
+                    <div class="subtitle">Education</div>
+                    {% for item in education %}
+                        <div class="content-container">
+                            <div class="content-heading">
+                                <div class="content-logo">
+                                    <img width="100%" src="{{ item.image }}" alt="{{ item.place }} logo">
+                                </div>
+                                <div class="content-text">
+                                    <div class="content-title">{{ item.place }}</div>
+                                    <div class="content-subtitle">{{ item.title }}</div>
+                                    <div class="content-dates">{{ item.dates }}</div>
+                                </div>
+                                <div class="content-coll-indicator"><div class="center-text-container">+</div></div>
                             </div>
-                            <div class="content-text">
-                                <div class="content-title">{{ item.place }}</div>
-                                <div class="content-subtitle">{{ item.title }}</div>
-                                <div class="content-dates">{{ item.dates }}</div>
+                            <div class="content-expand">
+                                <div class="content-logo-spacer"></div>
+                                <div class="content-main-text">
+                                    {{ item.description_data|safe }}
+                                </div>
+                                <div class="content-logo-spacer"></div>
                             </div>
-                            <div class="content-coll-indicator"><div class="center-text-container">+</div></div>
                         </div>
-                        <div class="content-expand">
-                            <div class="content-logo-spacer"></div>
-                            <div class="content-main-text">
-                                {{ item.description_data|safe }}
-                            </div>
-                            <div class="content-logo-spacer"></div>
-                        </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                {% endif %}
                 {% if experience is defined %}
                     <div class="subtitle">Experience</div>
                     {% for item in experience %}
@@ -56,11 +75,50 @@
                         </div>
                     {% endfor %}
                 {% endif %}
-            </div>
-            <div>
-
+                {% if certification is defined %}
+                    <div class="subtitle">Certification</div>
+                    {% for item in certification %}
+                        <div class="content-container">
+                            <div class="content-heading">
+                                <div class="content-logo">
+                                    <img width="100%" src="{{ item.image }}" alt="{{ item.place }} logo">
+                                </div>
+                                <div class="content-text">
+                                    <div class="content-title">{{ item.title }}</div>
+                                    <div class="content-subtitle">{{ item.place }}</div>
+                                    <div class="content-dates">{{ item.dates }}</div>
+                                </div>
+                                <div class="content-coll-indicator"><div class="center-text-container">+</div></div>
+                            </div>
+                            <div class="content-expand">
+                                <div class="content-logo-spacer"></div>
+                                <div class="content-main-text">
+                                    {{ item.description_data|safe }}
+                                </div>
+                                <div class="content-logo-spacer"></div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
     </div>
+    {% if skills is defined %}
+        <div class="slide shortest-slide">
+            <div class="slide-container center-justify">
+                <div class="content-category">
+                    <div class="subtitle">Skills</div>
+                    <div class="skills-container">
+                        {% for item in skills %}
+                        <div class="skill" id="html">
+                            <div class="img-container"><img src="{{ item[1] }}"></div>
+                            <div class="text">{{ item[2] }}</div>
+                        </div>
+                        {% endfor%}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
     <script src="{{ url_for('static', filename='js/about-page.js') }}"></script>
 {% endblock %}

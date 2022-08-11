@@ -1,5 +1,16 @@
 {% extends 'template.html' %}
 {% block css %}{% endblock %}
 {% block content %}
-    <div class="slide"></div>
+{% block page_header_title %}yichen.chong(){% endblock %}
+<div class="page-title">
+    Projects
+</div>
+<div class="slide">
+    <div class="slide-container center-justify">
+        <div class="content-category">
+            
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='js/about-page.js') }}"></script>
 {% endblock %}

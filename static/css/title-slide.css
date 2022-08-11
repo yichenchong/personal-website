@@ -8,7 +8,7 @@
 
 #hello_world_message {
     font-family: 'Fira Mono', 'Avenir', 'Bauhaus 93';
-    font-size: max(min(6vh, 3vw), 14pt);
+    font-size: max(min(6vh, 3vw), 15pt);
     color: var(--bright-accent);
     width: 60vw;
     white-space: nowrap;
