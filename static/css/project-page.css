@@ -19,7 +19,6 @@
     padding: 1vw;
     color: var(--main-text);
     flex-flow: column nowrap;
-    padding-top: 3em;
 }
 .content-category .subtitle {
     font-size: max(min(2.5vw, 3vh), 20pt);
@@ -39,39 +38,25 @@
     flex-flow: row nowrap;
     background-color: #222;
     border-radius: 1vh;
-    padding: 2vh 0vw;
+    padding: 4vh 0vw;
 }
 .content-container .content-heading:hover {
     background-color: #666;
 }
 .content-container .content-heading .content-logo {
-    width: 5%;
+    width: 0px;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     margin: 1vh 2vw;
-    min-width: 36px;
-    padding: 10px;
+    min-width: 20px;
+    padding: 2px;
 }
 .content-container .content-heading .content-text {
     width: 90%;
     font-size: max(min(1.5vw, 2vh), 16pt);
     display: flex;
     flex-flow: column nowrap;
-}
-.content-container .content-heading .content-coll-indicator {
-    width: 5%;
-    content: "\02795";
-    text-align: center;
-    line-height: 100%;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    padding: 2vw 2vh;
-    font-size: max(min(3vh, 3vw), 16pt);
-}
-.content-container .active .content-coll-indicator {
-    content: "\02796";
 }
 .content-container .content-heading .content-text {
     display: flex;
@@ -79,15 +64,15 @@
     justify-content: space-between;
 }
 .content-container .content-heading .content-text .content-title {
-    font-size: 100%;
+    font-size: max(100%, 14pt);
     font-weight: bold;
     padding-bottom: 0.5em;
-    line-height: 100%;
+    line-height: 120%;
 }
 .content-container .content-heading .content-text .content-subtitle {
-    font-size: 90%;
+    font-size: max(90%, 13pt);
     opacity: 80%;
-    line-height: 111%;
+    line-height: 120%;
 }
 .content-container .content-heading .content-text .content-dates {
     padding-top: 0.5em;
@@ -95,83 +80,49 @@
     font-size: max(75%, 12pt);
     line-height: 120%;
 }
-.content-container .content-expand {
+
+.skills {
+    width: 100%;
     display: flex;
     flex-flow: row nowrap;
-    font-size: max(min(1.5vw, 2vh), 16pt);
-    max-height: 0px;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out, padding-bottom 0.2s ease-out;
-}
-.content-container .content-logo-spacer {
-    width: 5%;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    margin: 1vh 2vw;
-}
-.content-container .content-expand .content-main-text {
-    font-size: 80%;
-    width: 90%;
-    display: flex;
-    flex-flow: column nowrap;
-    padding-top: 1vh;
-}
-.content-container .content-expand .content-main-text .section-header {
-    font-weight: bold;
-    padding-top: 1.5em;
-    padding-bottom: 0.5em;
-    font-size: 105%;
-}
-.content-container .content-expand .content-main-text .section-sub-header {
-    font-weight: bold;
-    padding-top: 0.5em;
-}
-.content-main-text a:hover {
-    opacity: 60%;
-}
-.content-main-text a {
-    text-decoration: underline
-}
-.content-main-text .hovertext > a {
-    text-decoration: underline dotted var(--accent) 1px;
+    margin-top: 1em;
 }
 
 .skills-container {
     width: 100%;
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
-    margin-right: 0;
-    padding-top: 2em;
+    padding-top: 10px;
+}
+.skills-label {
+    height: 100%;
+    font-size: 12pt;
+    margin-right: 1vw;
+    line-height: 2.5em;
+    line-height: calc(1em + 30px);
 }
 
 .skill {
-    margin: 1vh 1vw;
-    height: 2em;
+    font-size: 12pt;
+    text-align: center;
+    margin-right: 0.5vw;
+    margin-bottom: 1vh;
+    margin-left: 1vw;
     line-height: 2em;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
+    justify-content: center;
     position: relative;
     background-color: #444;
-    border-radius: 1em;
+    border-radius: 2em;
+    padding: 0 10px;
 }
 .skill:hover {
     opacity: 0.8;
 }
-.skill .img-container {
-    position: relative;
-    left: -0.5vw;
-    max-height: 90%;
-}
-.skill .img-container img {
-    object-fit: contain;
-    height: 100%;
-}
 .skill .text {
-    margin: auto 1vw;
-    margin-left: 0vw;
+    width: 100%;
+    text-align: center;
 }
 .content-category .subtitle.text {
     text-align: left;
@@ -190,17 +141,17 @@
     padding-top: 0.5em;
 }
 
-.testimonials a {
-    text-decoration: underline;
-}
-.testimonials a:hover {
-    opacity: 90%;
-}
 
 
 @media only screen and (orientation: portrait) and (max-width: 950px) {
     .about-blurb {
         width: 80%;
+    }
+    .content-container {
+        margin: 10px;
+    }
+    .skill {
+        font-size: 10pt;
     }
     
     .content-category .subtitle {

@@ -1,0 +1,8 @@
+{% extends 'template.html' %}
+{% block css %}
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/project-page.css') }}">
+{% endblock %}
+{% block page_header_title %}yichen.chong(){% endblock %}
+{% block content %}
+    {% include project + '.html' %}
+{% endblock %}

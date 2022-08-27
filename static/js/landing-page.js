@@ -24,7 +24,6 @@ const animateTypeUp = el => {
     );
 }
 
-
 const typeSpeedRange = [900, 1000]; // cpm
 const textShownTime = 1500;
 const textNotShownTime = 100;
@@ -32,55 +31,88 @@ const deleteSpeedMultiplier = 2;
 const noRepeatBufferLength = 5;
 const interestEl = document.getElementById("interests");
 
-const interestFreqDict = {
-    "programming." : 3,
-    "algorithms." : 3,
-    "software engineering." : 3,
-    "robotics." : 2,
-    "startups." : 3,
-    "mathematics." : 3,
-    "statistics." : 1,
-    "data." : 2,
-    "data science." : 2,
-    "web development." : 1,
-    "computer science." : 1,
-    "software." : 1,
-    "computers." : 1,
-    "finance." : 1,
-    "Python." : 1,
-    "Java." : 1,
-    "C." : 1,
-    "Haskell." : 1,
-    "Kotlin." : 1,
-    "engineering." : 3,
-    "tech." : 3,
-    "technology." : 3,
-    "full-stack development." : 2,
+const interests = [
+    "programming.",
+    "algorithms.",
+    "software engineering.",
+    "robotics.",
+    "startups.",
+    "mathematics.",
+    "statistics.",
+    "data.",
+    "data science.",
+    "web development.",
+    "computer science.",
+    "software.",
+    "computers.",
+    "finance.",
+    "Python.",
+    "Java.",
+    "C.",
+    "Haskell.",
+    "Kotlin.",
+    "engineering.",
+    "tech.",
+    "technology.",
+    "full-stack development."
+]
+
+
+function fy_shuffle(arr) {
+    // Durstenfeld/Knuth's implementation of the
+    // Fisher-Yates shuffle
+    for (var i = arr.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        var temp = arr[j];
+        arr[j] = arr[i];
+        arr[i] = temp;
+    }
 }
 
-var interests = []
-for (i in interestFreqDict) {
-    for (j = 0; j < interestFreqDict[i]; j++) interests.push(i);
-}
-console.log(interests)
+fy_shuffle(interests);
 
-var currentInterestIndex;
-var lastBuffer = [];
-var interestWordIndex;
+function modified_fy_shuffle(arr) {
+    // puts the shuffled array in the front
+    // prevents the last 25% of the previous array
+    // from being in the first 25% of the next array
+    //
+    // while this restricts the randomness of the next shuffle
+    // by making it dependent on the previous shuffle, the alternatives
+    // are to just use one shuffle repeatedly, in which case each shuffle
+    // is completely dependent on the first shuffle, or to allow repeats
+    // at the starts and ends of shuffles, which defeats the entire purpose
+    // of using shuffling rather than completely randomly drawing.
+    var fourth = Math.floor(arr.length / 4);
+    for (var i = 0; i < fourth; i++) {
+        j = Math.floor(Math.random() * (arr.length - fourth - i + 1)) + i;
+        var temp = arr[j];
+        arr[j] = arr[i];
+        arr[i] = temp;
+    }
+    for (var i = fourth; i < arr.length - 1; i++) {
+        j = Math.floor(Math.random() * (arr.length - i)) + i;
+        var temp = arr[j];
+        arr[j] = arr[i];
+        arr[i] = temp;
+    }
+}
+
+var interestWordIndex = 0;
 var intervalVal;
+var counter = 0;
 
 function nextWord() {
-    var repeat = true;
-    while (repeat) {
-        currentInterestIndex = Math.floor(Math.random() * interests.length);
-        repeat = lastBuffer.includes(interests[currentInterestIndex]);
+    word = interests[counter];
+    if (counter == interests.length - 1) {
+        modified_fy_shuffle(interests);
+        counter = 0;
+    } else {
+        counter++;
     }
-    if (lastBuffer.length >= noRepeatBufferLength) lastBuffer.shift();
-    lastBuffer.push(interests[currentInterestIndex]);
-    interestWordIndex = 0;
+    return word;
 }
 
-nextWord();
+var currentWord = nextWord();
 
 function generateInterval(mode) {
     var speed = Math.floor(Math.random() * (typeSpeedRange[1] - typeSpeedRange[0])) + typeSpeedRange[0];
@@ -89,10 +121,10 @@ function generateInterval(mode) {
 }
 
 function type() {
-    var text = interests[currentInterestIndex].substring(0, interestWordIndex + 1);
+    var text = currentWord.substring(0, interestWordIndex + 1);
     interestEl.innerHTML = text;
     interestWordIndex++;
-    if (text === interests[currentInterestIndex]) {
+    if (text === currentWord) {
         clearInterval(intervalVal);
         setTimeout(function () {
             intervalVal = setInterval(delete_text, generateInterval("DELETE"));
@@ -101,14 +133,14 @@ function type() {
 }
 
 function delete_text() {
-    var text = interests[currentInterestIndex].substring(0, interestWordIndex - 1);
+    var text = currentWord.substring(0, interestWordIndex - 1);
     interestEl.innerHTML = text;
     interestWordIndex--;
 
     if (text === '') {
         clearInterval(intervalVal);
 
-        nextWord();
+        currentWord = nextWord();
         
         setTimeout(function () {
             intervalVal = setInterval(type, generateInterval("TYPE"));

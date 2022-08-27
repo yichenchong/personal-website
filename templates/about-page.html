@@ -11,10 +11,16 @@
                 I grew up in a diverse international background, and consequently,
                 developed a <span class="highlight">wide variety of interests</span>. I'm a huge
                 <span class="highlight">tech enthusiast</span>, and I love to
-                <span class="highlight">solve problems</span> and <span class="highlight">code</span>.
+                <span class="highlight">solve problems</span> and <span class="highlight">code</span> (and especially both at once).
                 My tech interests range from <span class="highlight">data science</span> to
                 <span class="highlight">full-stack development</span>,
                 and I also engage in <span class="highlight">engineering, design, and&nbsp;business.</span>
+                <br/><br/>
+                I'm an <span class="highlight">incredibly fast hands-on learner</span>, with a penchant for picking up new skills.
+                If you want someone who has great test-taking and right-answer-regurgitation abilities, don't hire me.
+                However, if you want <span class="highlight">someone who can take projects and execute on them</span> or who can
+                <span class="highlight">generate creative solutions to issues</span>,
+                I'm&nbsp;your&nbsp;man.
                 <br/><br/>
                 I'm always <span class="highlight">looking for new opportunities</span>
                 to extend and use my skills, so if my background sounds
@@ -103,17 +109,64 @@
             </div>
         </div>
     </div>
+    <div class="slide shortest-slide">
+        <div class="slide-container center-justify">
+            <div class="content-category">
+                <div class="subtitle">Testimonials</div>
+                <div class="subtitle text testimonials">
+                    I'm a strong  team player who takes initiative and I'm known for my communication,
+                    helpfulness, dedication, and patience.<br/> But don't just take it from me -
+                    <span class="hovertext" data-hover="Original documentation available upon request">
+                        here is what others have had to say about my work:
+                    </span>
+                    <br/><br/>
+                    <span class="section-sub-header">Excerpts from my National Service Commander's Appraisal and Testimonial:</span>
+                    <br/><br/>
+                    <div class="quote">
+                        "3SG CHONG was an approachable and capable leader who displayed commendable characteristics
+                        such as perseverance and helpfulness. His willingness to communicate openly and provide constructive
+                        feedback had earned him the respect of both his superiors and soldiers ... He was passionate in nurturing
+                        his soldiers, which ultimately led to his section achieving excellent results during their first year
+                        evaluation."
+                    </div>
+                    <br/>
+                    <div class="quote">
+                        "3SG CHONG was responsible for training and leading his soldiers and junior commanders. He was observed to have
+                        spent additional hours outside training to coach his soldiers personally if they faced difficulties during training.
+                        He had notably coached one of his soldiers prior to a live firing exercise, with the intention of ensuring that the
+                        soldier could execute his drills safely. He had been a valued member of his team, providing valuable knowledge and
+                        experience. He was known to be a helpful and approachable commander, always open to providing clarifications to those
+                        around him ...  In summary, 3SG CHONG has performed well during his service and had displayed commendable spirit as a
+                        leader. He was knowledgeable, helpful and was a team player. We are confident that with his capabilities, 3SG CHONG will
+                        be a valuable asset to any organisation he joins in the future."
+                    </div>
+                    <br/>
+                    <span class="section-sub-header">
+                        Comments from students on
+                        <a href="https://upchieve.org/">Upchieve</a>
+                        , a volunteer tutoring platform I work with:
+                    </span>
+                    <br/><br/>
+                    <span class="quote">Extremely kind and relatable, easy to work with and was politely honest"</span> - G.
+                    <br/><br/>
+                    <span class="quote">My coach was awesome! Super helpful and patience--loved working together!"</span> - A.
+                </div>
+            </div>
+        </div>
+    </div>
     {% if skills is defined %}
         <div class="slide shortest-slide">
             <div class="slide-container center-justify">
                 <div class="content-category">
                     <div class="subtitle">Skills</div>
-                    <div class="skills-container">
+                    <div class="skills-container noselect">
                         {% for item in skills %}
-                        <div class="skill" id="html">
-                            <div class="img-container"><img src="{{ item[2] }}"></div>
-                            <div class="text">{{ item[1] }}</div>
-                        </div>
+                        <a href="/projects?filter={{ item[1]|e }}">
+                            <div class="skill">
+                                <div class="img-container"><img src="{{ item[2] }}"></div>
+                                <div class="text">{{ item[1] }}</div>
+                            </div>
+                        </a>
                         {% endfor%}
                     </div>
                 </div>

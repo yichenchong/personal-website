@@ -75,7 +75,7 @@ a, a:hover {
 
 /** header **/
 .page-header {
-    min-height: 30px;
+    min-height: 80px;
     height: min(5vh, 5vw);
     width: 100vw;
     display: flex;
@@ -84,7 +84,7 @@ a, a:hover {
     margin: 0;
     padding: 0;
     background-color: var(--base-color);
-    z-index: 1;
+    z-index: 100;
     color: var(--main-text);
     position: fixed;
     box-shadow: 0 2px 20px 1px rgba(255, 255, 255, 0.05);
@@ -160,7 +160,6 @@ a, a:hover {
     border-radius: 5px;
     padding: 1vh 1vw;
     transition: opacity 0.2s ease-in-out;
-    max-height: 40vh;
 
     position: absolute;
     z-index: 1;
@@ -312,7 +311,7 @@ ul li {
 /** header **/
 #page-top {
     height: min(5vh, 3vw);
-    min-height: 50px;
+    min-height: 80px;
 }
 
 #header-logo-container {
@@ -356,6 +355,7 @@ ul li {
 
 /** both header and footer **/
 
+
 @media only screen and (orientation: portrait) {
 
     /** for phone screens **/
@@ -363,8 +363,11 @@ ul li {
         min-height: 95vh;
     }
     body .shortest-slide {
-        min-height: 30vh;
+        min-height: 20vh;
     }
+    .content-main-text .hovertext.linked:hover:before {
+        display: none;
+    } 
 
 
     /** header **/

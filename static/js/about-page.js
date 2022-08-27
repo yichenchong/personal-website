@@ -13,6 +13,7 @@ for (i = 0; i < coll.length; i++) {
       timeout = setTimeout(function () {;});
       indicatorContainer.innerText = "+";
       var item = this;
+      content.style.overflow = "hidden";
       content.style.paddingBottom = "0px";
       content.style.maxHeight = "0px";
       item.classList.toggle("active");
@@ -24,6 +25,7 @@ for (i = 0; i < coll.length; i++) {
       timeout = setTimeout(function () {
         content.style.maxHeight = "none";
         item.classList.toggle("active");
+        content.style.overflow = "visible";
       }, 200);
     }
   });

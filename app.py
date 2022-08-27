@@ -1,8 +1,14 @@
 import helper.resume_loader.res_loader as rl
+import helper.projects.project_loader as pl
+from helper.projects.project_blueprint import project
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+import flask_cors
+
 app = Flask(__name__)
+flask_cors.CORS(app)
 
+app.register_blueprint(project)
 
 @app.route('/')
 def landing_page():
@@ -19,12 +25,14 @@ def about_page():
         skills=rl.get_skills()
     )
 
-
-@app.route('/projects/')
-def contact_page():
-    return render_template('project-page.html')
-
+@app.route('/projects/', methods=['GET'])
+def projects_page():
+    return render_template(
+        'project-page.html',
+        projects=pl.get_projects()[::-1],
+        params=request.args.to_dict()
+    )
 
 @app.route('/contact/')
-def project_page():
+def contact_page():
     return render_template('contact-page.html')

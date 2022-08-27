@@ -1,0 +1,119 @@
+{% extends 'template.html' %}
+{% block css %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/project-page.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+{% endblock %}
+{% block page_header_title %}yichen.chong(){% endblock %}
+{% block content %}
+<div class="page-title">
+    Projects
+</div>
+<div class="slide">
+    <div class="slide-container center-justify">
+        <div class="content-category project-content-category">
+            <div class="project-container">
+                <div class="project-square noselect big-square">
+                    <div class="project-square-inner">
+                        <div class="project-square-front">
+                            <div class="front-container">
+                                <img class="project-image" onerror="this.style.display='none'" src="{{ url_for('static', filename='img/project-thumbs/vm2.png') }}" alt="Personal Website">
+                                <div class="overlay">
+                                    <div class="project-title">Vending Machine Committee</div>
+                                    <div class="project-subtitle"><i>Engineering Lead</i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-square-back">
+                            <div class="back-container">
+                                <div class="project-subtitle">
+                                    The Student Union president was complaining to me about the prices for a vending machine.
+                                    I offered to see if I could build it, picked
+                                    out my team, and in a few months, built a full-scale, profitable
+                                    e-payment vending machine. Click to read more.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-square noselect small-square">
+                    <div class="project-square-inner">
+                        <div class="project-square-front">
+                            <div class="front-container">
+                                <img class="project-image" onerror="this.style.display='none'" src="{{ url_for('static', filename='img/project-thumbs/postman_logo.png') }}" alt="Personal Website">
+                                <div class="overlay">
+                                    <div class="project-title">Java Social Network</div>
+                                </div>
+                            </div>                      </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-square noselect small-square">
+                    <div class="project-square-inner">
+                        <div class="project-square-front">
+                            <div class="front-container">
+                                <img class="project-image" onerror="this.style.display='none'" src="{{ url_for('static', filename='img/project-thumbs/postman_logo.png') }}" alt="Personal Website">
+                                <div class="overlay">
+                                    <div class="project-title">Java Social Network</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-square-back">
+                            <div class="back-container">
+                                <div class="project-subtitle">
+                                    Simple social network w/ Java for Computing Practical 1
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="spacer-square big-square noselect"></div>
+                <div class="spacer-square big-square noselect"></div>
+                <div class="spacer-square big-square noselect"></div>
+            </div>
+            <div class="project-container">
+                <div class="project-square noselect small-square">
+                    <div class="project-square-inner">
+                        <div class="project-square-front">
+                            <div class="front-container">
+                                <img class="project-image" onerror="this.style.display='none'" src="{{ url_for('static', filename='img/project-thumbs/postman_logo.png') }}" alt="Personal Website">
+                                <div class="overlay">
+                                    <div class="project-title">Java Social Network</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-square-back">
+                            <div class="back-container">
+                                <div class="project-subtitle">
+                                    Simple social network w/ Java for Computing Practical 1
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-square noselect small-square">
+                    <div class="project-square-inner">
+                        <div class="project-square-front">
+                            <div class="front-container">
+                                <img class="project-image" onerror="this.style.display='none'" src="{{ url_for('static', filename='img/project-thumbs/postman_logo.png') }}" alt="Personal Website">
+                                <div class="overlay">
+                                    <div class="project-title">Java Social Network</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-square-back">
+                            <div class="back-container">
+                                <div class="project-subtitle">
+                                    Simple social network w/ Java for Computing Practical 1
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='js/project-image-color.js') }}"></script>
+{% endblock %}
