@@ -18,7 +18,7 @@ def clear():
 
 def loadall():
     release = "1.0.0"
-    load("Computer Science", "https://cdn.jsdelivr.net/gh/yichenchong/elegant-circles/svg/dev.svg")
+    load("Computer science", "https://cdn.jsdelivr.net/gh/yichenchong/elegant-circles/svg/dev.svg")
     load("Mathematics", "https://cdn.jsdelivr.net/gh/yichenchong/elegant-circles/svg/circlecompass.svg")
     load("Data", "https://cdn.jsdelivr.net/gh/yichenchong/elegant-circles/svg/trends.svg")
     load("Robotics", f"https://cdn.jsdelivr.net/gh/yichenchong/personal-website/helper/resume_loader/skills/img/robot.svg")
@@ -43,7 +43,6 @@ def loadall():
     load("Postman", "https://cdn.jsdelivr.net/gh/yichenchong/personal-website/helper/resume_loader/skills/img/postman_logo.png")
     load("Jira", "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg")
     load("Arduino", "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg")
-    load("JetBrains", "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jetbrains/jetbrains-original.svg")
     load("Adobe Photoshop", "https://cdn.cdnlogo.com/logos/a/44/adobe-photoshop-cc.svg")
     load("Adobe Illustrator", "https://cdn.cdnlogo.com/logos/a/5/adobe-illustrator-cc.svg")
     load("Adobe Premiere Pro", "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/premierepro/premierepro-original.svg")

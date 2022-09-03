@@ -13,6 +13,10 @@
     color: var(--main-text);
     font-weight: 550;
 }
+.testimonials .highlight {
+    color: var(--main-text);
+    font-weight: 550;
+}
 
 .content-category {
     width: 80%;
@@ -188,6 +192,9 @@
 .content-category .subtitle.text .section-sub-header {
     font-weight: bold;
     padding-top: 0.5em;
+}
+.subtitle.text.testimonials {
+    font-size: max(100%, 12pt);
 }
 
 .testimonials a {

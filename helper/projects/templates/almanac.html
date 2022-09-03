@@ -1,8 +1,118 @@
 <div class="page-title">
     Project Almanac
 </div>
-<div class="slide">
+<div class="slide center-justify">
     <div class="slide-container center-justify">
-        404 page yet to be created
+        <div class="content-category">
+            <div class="subtitle" style="text-align: center">
+                <i>
+                    Project Almanac was a project I co-developed to index the student information from our Learning
+                    Management System, Schoology, in an easily accessible way, to allow clubs easier access to student information
+                    (such as student yearbook photographs and student emails for marketing communications purposes).
+                </i>
+            </div>
+            <br/>
+            <div style="text-align: center">
+                Skills: Flask, Web development, Web Scraping, SQL, Data, Python
+            </div>
+            <br/><br/>
+            <div class="project-text">
+                <div class="subtitle">
+                    The short version
+                </div>
+                <ul>
+                    <li>
+                        Co-developed web scraper to inventory student data from Schoology LMS using
+                        BeautifulSoup, requests, and Selenium
+                    </li>
+                    <li>
+                        Oversaw project to turn student data into queryable web application using
+                        SQLite, HTML, CSS, Javascript, and Python Flask
+                    </li>
+                    <li>Used student data to assist club marketing campaigns</li>
+                </ul>
+                <br/>
+                <div class="subtitle">
+                    Introduction
+                </div>
+                <p> 
+                    I had a wonderfully nerdy friend group in High School, mainly consisting of the Robotics Club (around 5 out of 6
+                    members of the committee were from our friend group).
+                    One day, we were sending out the club's newsletters when we realised that to get some people's
+                    emails, and to figure out who was who, we had to look on our Learning Management System (Schoology). To do this,
+                    we had to look in our community (SAS Puxi High School) and then try to search on each page, through hundreds
+                    of entries. This was very slow, so a friend of mine built a prototype program using Python and
+                    Selenium to crawl through the community page, and download all this information into the filename of the yearbook
+                    photo (profile photo for the site).
+                </p>
+                <img src="{{url_for('static', filename='img/almanac.png')}}" width="40%" class="left-wrap-img">
+                <p>
+                    It was quickly apparent that we could and should go further with this idea. There were 
+                    several problems with the original implementation. First, some people, for some administrative reason, were never
+                    added to the community page, which led our data to be relatively incomplete. Second, it didn't include
+                    information from the prospective joiners in Middle School. Third, the data was still difficult to search and
+                    parse. I first began writing a script converting the existing data into a single-page HTML table, but we found out
+                    that was far too slow, so I began development on a second version of the app, which we termed "Almanac".
+                </p>
+                <div class="subtitle">
+                    Implementation
+                </div>
+                <p>
+                    The web crawler component, termed "AlmanacGather", was the most difficult part of the project.
+                    Using some Selenium, but mostly BeautifulSoup and Requests, I built a web-crawler, this time scanning through
+                    the space of available user IDs, instead of through the community pages. It also stored the data in a SQLite
+                    database, with the yearbook photographs attached as a Binary Large Object (BLOB). This implementation allowed
+                    for more specific information storage (as the information was previously stored in a file name, it was
+                    restricted to a single string rather than a data structure), as well as more comprehensive crawling capabilities.
+                </p>
+                <p>
+                    However, the new implementation needed additional modifications to accommodate for the fact that it was crawling
+                    the entire User ID space. First and foremost, it would have been impossible to run in one session. As such,
+                    I had to implement a primitive auto-save feature - the progress was written to a text file, about every 10 
+                    User IDs attempted, allowing for resumption of the crawling where the program left off. Secondly, part of the 
+                    reason I ended up using BeautifulSoup and requests rather than Selenium was to optimize the efficiency of the
+                    program. BeautifulSoup and requests don't require one to render the web page, which actually drastically boosted
+                    the crawling efficiency.
+                </p>
+                <p>
+                    We also floated the idea of using concurrency to further optimize the program.
+                    However, even though SQLite is threadsafe, use of it with threads is not strongly recommended, and the performance
+                    boosts would be bottlenecked by the mutexes present in the database. Furthermore, running on a personal computer,
+                    the performance boosts would be minimal compared to the time spent debugging concurrency issues.
+                    Therefore, concurrency was not introduced into the project.
+                </p>
+                <p>
+                    Using the SQLite database, a primitive search page was constructed with relative ease, using Flask, allowing access
+                    to all records. However, this web application, along with the original Almanac data, have not been published online,
+                    for obvious privacy reasons.
+                </p>
+                <p>
+                    In the course of this project, several interesting findings were also made regarding to the security of the
+                    Schoology system. I can provide more information upon request, but will not be publishing the related information
+                    online for security and legal reasons.
+                </p>
+                <div class="subtitle">
+                    Individual Learning and Growth
+                </div>
+                <p>
+                    The project taught me a lot about web crawling and its related technologies, mostly in regards to using
+                    BeautifulSoup and requests to crawl through information, especially regarding how to parse website structures
+                    to find the desired information. This practical experience with requests helped me later on, in my own web
+                    development, and even later, as I learnt to test APIs with ByteDance. The project also taught me to circumvent
+                    obstacles in web crawling, such as inconsistent data formats, missing data, etc.
+                </p>
+                <p>
+                    It was also the first (but certainly not the last) project in which I implemented
+                    an auto-save feature. This feature became a staple of my own web-crawling projects, as it allowed me to run these
+                    bots on my personal computer. For example, later on, I also used a web crawler to build an online recipe book for
+                    as a birthday present for my mother which implemented a similar, albeit modified, progress saving system.
+                </p>
+                <p>
+                    It also helped me gain confidence in my skills in implementing a full project, consisting of multiple components,
+                    and my programming skills in general. My friend and I both ended up studying computer science in college, and
+                    this project no doubt contributed to the decision.
+                </p>
+            </div>
+        </div>
     </div>
 </div>

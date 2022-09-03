@@ -1,8 +1,157 @@
 <div class="page-title">
-    C Group Project
+    COMP40009 Computing Practical 1 C Group Project
 </div>
-<div class="slide">
+<div class="slide center-justify">
     <div class="slide-container center-justify">
-        404 page yet to be created
+        <div class="content-category">
+            <div class="subtitle" style="text-align: center">
+                <i>
+                    Created an emulator and assembler for the ARM11 Raspberry Pi
+                </i>
+            </div>
+            <br/>
+            <div style="text-align: center">
+                Skills: C, Computer science, Teamwork, Programming, Assembly, Git
+            </div>
+            <br/><br/>
+            <div class="project-text">
+                <div class="subtitle">
+                    The short version
+                </div>
+                <ul>
+                    <li>
+                        Created C kernel
+                    </li>
+                    <li>
+                        Assisted the development of ARM11 assembler using C
+                    </li>
+                    <li>
+                        Group loaded stripped-down version of Linux Kernel onto emulator
+                    </li>
+                </ul>
+                <div class="subtitle">
+                    Introduction
+                </div>
+                <p> 
+                    As our final project for COMP40009 Computing Practical 1, we were asked to build an emulator and assembler for
+                    the ARM11 Raspberry Pi, using C. This involved studying the ARM assembly and architecture, to understand how
+                    to emulate the Raspberry Pi hardware (mainly memory and I/O), run machine code on the emulated hardware, and
+                    convert assembly into machine code. This was completed in groups of four, and my groupmates were Aatish
+                    Giridharan, Ali Abbas, and Iurii Zamiatin.
+                </p>
+                <img src="{{url_for('static', filename='img/cproj.png')}}" width="30%" class="left-wrap-img">
+                <p>
+                    For the extension, the group also implemented a reduced version of
+                    the Linux kernel, although that was mainly completed by Ali and Iurii, as Ali and I were not graded on the
+                    extension as Joint Mathematics and Computing (JMC) students. Instead, we spent the time completing a Computing 
+                    Architecture bootcamp, culminating in a bomb lab (similar to the one featured in "Computer Systems: A
+                    Programmer's Perspective"), as well as a short coursework on computer arithmetic (mainly floating-point).
+                    This was because JMC did not complete the Introduction to Computer Architecture course, so this crash course
+                    was meant to bring us up to speed, both in terms of applicable knowledge, and for the purposes of the
+                    project.
+                </p>
+                <p>
+                    I was mainly responsible for writing the code for the emulator. This consisted of emulating the memory and CPU
+                    of the Raspberry Pi. There were also some constraints we had to follow to more closely mimic ARM11 architecture,
+                    including the emulation of the fetch-decode-execute cycle (the program counter had to be 2 instructions ahead
+                    of the command that was being executed).
+                </p>
+                <p>
+                    We were provided a test suite to validate our emulator and assembler, and completed all the mandatory features
+                    on them, but fell short of some optional features in the emulator due to time constraints.
+                </p>
+                <div class="subtitle">
+                    Implementation
+                </div>
+                <p>
+                    The first challenge of the project's implementation was figuring out how to best structure the software.
+                    We settled upon dividing the system into 4 components, or 8 main libraries.
+                </p>
+                <p>
+                    First, <span class="code-mono">`arm11_int.h`</span> was a header-only library for dealing with ARM integer type.
+                    It also included functions to swap endianness, perform integer arithmetic, and load/store them to raw byte memory
+                    at arbitrary offsets. Second, <span class="code-mono">`libbcm2835`</span> was a BCM2835 SoC emulation helper
+                    library, that allowed us to translate physical addresses into BCM2835 peripheral commands (for the Raspberry Pi's
+                    I/O functionality). Third, we also built a hashmap implementation, including our own implemented hash function,
+                    for use in the emulator.
+                    This was our helper component (consisting of 3 libraries), that both the assembler and the emulator would use,
+                    but did not do much of the actual work (in other programming languages, these would most likely be imported
+                    libraries, but for project purposes, we were forced to reinvent the wheel). We all contributed to the shared
+                    library.
+                </p>
+                <p>
+                    The second component, the emulator, consisted of 2 main libraries. The <span class="code-mono">`emulate`</span>
+                    library was the emulation driver that handled the I/O for our emulation library. It printed our emulator state
+                    (even implementing a single-step debug mode that allowed us to trouble-shoot our problems faster), as well as
+                    GPIO accesses. The <span class="code-mono">`libarm11_emu`</span> library (consisting of
+                    <span class="code-mono">`arm11_emu`</span>, <span class="code-mono">arm11_emu_core</span>, and
+                    <span class="code-mono">arm11_emu_ins</span> header and c files) did the heavy lifting for the emulation,
+                    running the fetch-decode-execute cycle, the translation of the instruction routines, complete with an interface
+                    to access the emulator module. This was the component I was chiefly responsible for. Iurii helped with the
+                    emulation driver, as well as extending the instruction set (we were only required to implement four instructions,
+                    but ended up implementing the entirety of ARMv6).
+                </p>
+                <p>
+                    The third component, the assembler, also consisted of 2 main libraries. We implemented a two-path system: the
+                    first pass feeds the input to a finite state machine which tokenizes it into a struct, and the second pass takes
+                    the created struct and processes it into binary using string manipulation. The reason a two-pass system was
+                    needed was as code and data effectively share the same memory in Assembly, data sizes and the like all affected
+                    the output machine code (especially as much of the code refers to offsets from the program counter). Therefore,
+                    we had a tokenizer component that parsed the Assembly code into an
+                    <span class="code-mono">`instruction_data`</span>
+                    struct. This was then translated into machine code. Aatish was chiefly responsible for this component,
+                    and Ali wrote the tokenizer.
+                </p>
+                <p>
+                    The final component was the extension. Much of the work in implementing the stripped-down Linux kernel was in
+                    extending the emulator, so this component was relatively lightweight. Interrupts were also added to the emulator.
+                    The libraries included System Coprocessor 15 (which implemented various system-level functions), an MMU
+                    (which added support for paging), a mode switching library (to swap our man register copy with the banked register
+                    buffer on mode switch), and Integrator/CP peripherals emulation. A Python script was also used to debug the
+                    extension, as the kernel required thousands of instructions, and single-step debugging was no longer an option.
+                    The extension succeeded in executing early Linux initialization routines, but failed to handle the timer interrupt
+                    properly, leading to several errors. However, it was still a success that we managed to run the first 83,000,000
+                    instructions. Iurii and Ali were responsible for the extension.
+                </p>
+                <p>
+                    The deliverables for the project included the source code, as well as two LaTeX reports, a video presentation
+                    (which I edited with Adobe Premiere Pro), and a short defense of our implementation. The LaTeX reports and
+                    video presentation are attached
+                    <a href="https://drive.google.com/drive/folders/1fWayhv9LhZ8jfU_d6ELbGhuxlX46zuvX?usp=sharing">here</a>
+                    for more information.
+                </p>
+                <div class="subtitle">
+                    Individual Learning and Growth
+                </div>
+                <p>
+                    The biggest challenge in this project was learning how to work on software projects as a group. All of us
+                    had prior programming experience, but this was our first time collaborating on such a large project.
+                    The main struggles revolved around the twin issues
+                    of technology and communication. Technology issues included merge conflicts and working with
+                    different devices on the same software project. For example, we found out that line
+                    endings can pose a problem, as my code editor defaulted to a Windows line ending, creating
+                    hundreds of lines of changes in one commit. We learned to use .gitattributes the hard way. However,
+                    these challenges were quickly overcome, as we learned to work with project management technology.
+                    Communication was also a challenge, as it was difficult to sync up different people’s schedules to
+                    work on the same project. Personally, I think my key strength in this project was in trying to get
+                    my parts done as soon as possible so that the rest of the group could do their work. My personal
+                    weakness was possibly being too blindered in my implementation, and occasionally unknowingly
+                    making changes to the code that affected other parts of the project. In those cases, I would usually
+                    have to roll back my changes, and figure out a different implementation, meaning that I sometimes
+                    would do things twice. These skills have been useful as I began to do teamwork in my internship at
+                    ByteDance, and I am sure will prove useful next year, as we construct the Pintos Operating System,
+                    and a WACC Compiler.
+                </p>
+                <p>
+                    Additionally, this project greatly enhanced my technical skills. While I had previously studied
+                    digital logic and computer architecture through online courses, this was my first large project where
+                    I had to actually implement that knowledge. It really helped me to truly understand what was going on
+                    behind the scenes in a computer, and it was extremely interesting working on something that we often
+                    take for granted as programmers. It also has been my largest C project (I did a few smaller projects
+                    in C when I completed the coursework for Harvard CS50 online), so it allowed me to explore many features
+                    of the language that I haven't frequently used.
+                </p>
+            </div>
+        </div>
     </div>
 </div>

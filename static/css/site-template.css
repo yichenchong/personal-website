@@ -18,7 +18,7 @@
     /* color-definitions */
     --terminal-green: #4af626;
 
-    --base-color: #111;
+    --base-color: #000;
     --bright-accent: var(--terminal-green);
     --main-text: #dddddd;
     --sub-text: #aaa;
@@ -92,7 +92,9 @@ a, a:hover {
 
 .page-title {
     padding-left: 5%;
-    line-height: 3em;
+    padding-top: 1.25em;
+    padding-bottom: 1.25em;
+    line-height: 1em;
     font-size: min(max(min(8vw, 15vh), 20pt), 40pt)
 }
 
@@ -170,6 +172,9 @@ a, a:hover {
 .hovertext:hover:before {
     opacity: 1;
     visibility: visible;
+}
+.code-mono {
+    font-family: 'Courier New', Courier, monospace;
 }
 
 /** classes **/
@@ -259,7 +264,6 @@ ul li {
 .slide-container {
     display: flex;
     flex-flow: row nowrap;
-    height: 50%;
 }
 
 .spacer {
@@ -378,6 +382,9 @@ ul li {
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+        .page-title {
+            text-align: center;
+        }
     }
 
     .page-header {
@@ -445,5 +452,11 @@ ul li {
         width: 6vh;
         height: 4.2vh;
         border-radius: 4vh;
+    }
+}
+
+@media only print {
+    .page-header {
+        position: absolute;
     }
 }

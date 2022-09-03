@@ -97,7 +97,7 @@
 .skills-label {
     height: 100%;
     font-size: 12pt;
-    margin-right: 1vw;
+    margin-right: 10px;
     line-height: 2.5em;
     line-height: calc(1em + 30px);
 }
@@ -106,8 +106,8 @@
     font-size: 12pt;
     text-align: center;
     margin-right: 0.5vw;
-    margin-bottom: 1vh;
-    margin-left: 1vw;
+    margin-bottom: 10px;
+    margin-left: 5px;
     line-height: 2em;
     display: flex;
     flex-flow: row nowrap;
@@ -140,10 +140,51 @@
     font-weight: bold;
     padding-top: 0.5em;
 }
+.project-text p {
+    font-size: max(100%, 13pt);
+    text-indent: 3.5ch;
+    color: #ccc;
+}
 
+img.left-wrap-img {
+    float: left;
+    min-width: 300px;
+    padding: 0.5em 2vw;
+    padding-left: 0;
+}
 
+.project-text a {
+    text-decoration: underline;
+}
+.project-text a:hover {
+    opacity: 0.8;
+}
 
-@media only screen and (orientation: portrait) and (max-width: 950px) {
+.project-text ul {
+    padding: 1vh 2vw;
+}
+.project-text li {
+    margin: auto 1vw;
+    margin-bottom: 0.5vh;
+}
+@media (min-width: 1000px) {
+    .project-text ul.long-list {
+        columns: 2;
+    }
+}
+
+@media (max-width: 700px) {
+    img.left-wrap-img {
+        width: 100%;
+        padding-bottom: 2em;
+        min-width: 0;
+    }
+    .project-text p {
+        text-indent: 2.5ch;
+    }
+}
+
+@media only screen and (orientation: portrait) and (max-width: 500px) {
     .about-blurb {
         width: 80%;
     }
@@ -153,6 +194,14 @@
     .skill {
         font-size: 10pt;
     }
+    .skills-label {
+        display: none;
+        margin: none;
+        padding: none;
+    }
+}
+
+@media only screen and (orientation: portrait) and (max-width: 950px) {
     
     .content-category .subtitle {
         font-size: max(min(1.5vw, 2vh), 18pt);

@@ -64,10 +64,12 @@
  /* media queries */
 /*****************/
 
-@media screen and (orientation: portrait) and (max-width: 400px) {
-    .double_line_height_when_screen_small {
+@media screen and (orientation: portrait) and (max-width: 600px) {
+    .subtitle .double_line_height_when_screen_small {
         margin: 0;
         padding: 0;
-        min-height: 4em;
+        max-height: 1.5em;
+        position: relative;
+        top: 0;
     }
 }

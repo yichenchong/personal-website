@@ -1,0 +1,89 @@
+<div class="page-title">
+    AP Statistics Survey Project
+</div>
+<div class="slide center-justify">
+    <div class="slide-container center-justify">
+        <div class="content-category">
+            <div class="subtitle" style="text-align: center">
+                <i>
+                    For our AP Statistics final project, we were tasked with designing a study to test bias with surveys. My group
+                    automated it.
+                </i>
+            </div>
+            <br/>
+            <div style="text-align: center">
+                Skills: Teamwork, Flask, Web development, CSS, SQL, Programming, REST, Mathematics, HTML, Python, Statistics
+            </div>
+            <br/><br/>
+            <div class="project-text">
+                <div class="subtitle">
+                    The short version
+                </div>
+                <ul>
+                    <li>
+                        Oversaw the design and implementation of a survey-bias experiment
+                    </li>
+                    <li>
+                        Designed web application to automate data-collecting and processing for experiment,
+                        allowing for longer data-gathering time and better results
+                    </li>
+                    <li>
+                        Automated results analysis and generation in web application program
+                    </li>
+                </ul>
+                <div class="subtitle">
+                    Introduction
+                </div>
+                <p> 
+                    At the end of AP Statistics, we were tasked with designing a study to test bias using surveys in partner pairs.
+                    We were given a one-week deadline to complete a research proposal, and then three weeks to execute it.
+                    This was an interesting problem for several reasons. First, it was both a survey and an experiment project,
+                    which is relatively rare, as surveys typically don't involve comparing categorical data. Second, the time frame 
+                    was relatively short, given that it could take a long time to get enough responses for the survey to achieve
+                    a large enough sample size, while also writing up the report for it.
+                </p>
+                <img src="{{url_for('static', filename='img/apstats.png')}}" width="40%" class="left-wrap-img">
+                <p>
+                    With the time constraints, I decided that the best way for my partner and I to tackle this problem was to
+                    automate it. We designed a project around those constraints, by testing whether two different domain names
+                    (a survey on a generic SurveyMonkey link, or a survey on a website hosted on PythonAnywhere.com) would bias or
+                    affect survey responses in any way, hypothesizing that a generic link would build more trust in responders,
+                    so the survey responses would create a different (and probably but not necessarily more accurate) response.
+                </p>
+                <p>
+                    While others spent the first two weeks gathering responses through their friends and family, handing out
+                    different surveys to different people by hand and rushing to finish the data analysis and the report in the
+                    last week, my partner and I spent the proposal week building the data collection and storage mechanism,
+                    posteded the website on Reddit (complete with an automatic redirect sending people to one of the two random
+                    surveys) as soon as our proposal was approved. As the responses were rolling in, I wrote some code to process
+                    the data (mostly complete and analyse a chi-squared test), and we preemptively wrote several versions of our
+                    data analysis and conclusions into the program. This allowed us to gather data throughout the entirety of the
+                    three weeks, allowing us to get over 200 responses (we were one of the 2-3 groups who actually achieved the
+                    sample size we set out for in our proposal), and then copy the data analysed in the final two days. While our
+                    hypothesis was largely disproven (there was some difference, but p&lt;0.05), the success of the project as well
+                    as the innovative approach earned us a very high grade.
+                </p>
+                <div class="subtitle">
+                    Implementation
+                </div>
+                <p>
+                    The redirect component and the website hosting component were achieved with Flask, hosted on PythonAnywhere.com.
+                    Data was collected from SurveyMonkey via the SurveyMonkey API, while the data sent on our domain was collected
+                    directly via 'POST' request. To maintain the controlled variables while not copying code directly,
+                    I used HTML and CSS to closely mimick the
+                    design of the SurveyMonkey site. The requests were then stored in a SQLite database. Python was used to generate
+                    the steps of the data analysis (our working for the chi squared tests), and scipy.stats was used to test and
+                    test and validate the accuracy of our code.
+                </p>
+                <div class="subtitle">
+                    Individual Learning and Growth
+                </div>
+                <p>
+                    The project was not especially technically challenging, but mostly helped me learn to automate tasks for greater
+                    efficiency. It also allowed me to connect computation and mathematics for the first time, which is a theme that
+                    carried on into several of my projects, as well as my degree, later.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,103 @@
+.contact-form {
+    padding: 40px;
+    width: 80%;
+}
+.contact-form .input-block {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: solid 1px #555;
+    border-radius: 5px;
+    min-height: 80px;
+    position: relative;
+    margin-bottom: 15px;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.contact-form .input-block.active {
+    background-color: white;
+    border: solid 1px #000;
+}
+.contact-form .input-block textarea {
+    height: 80px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+.contact-form .input-block textarea.form-control {
+    height: 100%;
+    width: 100%;
+    resize: none;
+    font-size: 20pt;
+    color: white;
+    box-sizing: border-box;
+}
+.contact-form .input-block label {
+    position: absolute;
+    left: 25px;
+    top: 25px;
+    display: block;
+    margin: 0;
+    font-weight: 300;
+    z-index: 1;
+    color: white;
+}
+.contact-form .input-block .form-control {
+    background-color: transparent;
+    padding: 15px 25px;
+    border: none;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    position: relative;
+    z-index: 2;
+    font-size: 20pt;
+    color: #333;
+    height: 80px;
+    line-height: 1.5em;
+    width: 100%;
+    resize: none;
+    color: white;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+.contact-form .input-block .active.form-control:invalid:not(:focus) {
+    border: 2px solid red;
+    color: red;
+}
+.contact-form .input-block .active.form-control:invalid:not(:focus)::placeholder {
+    color: rgba(255, 0, 0, 0.6);
+}
+
+.contact-form .input-block .form-control:focus {
+    background-color: #333;
+    outline: none;
+}
+
+.contact-form .input-block .form-control:focus label {
+    top: 0;
+}
+
+.contact-form .submit-button {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    font-size: 26px;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    padding: 0 60px;
+    height: 60px;
+    border: none;
+    width: 100%;
+}
+.contact-form .submit-button:hover,
+.contact-form .submit-button:focus {
+    background-color: white;
+}

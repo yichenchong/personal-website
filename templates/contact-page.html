@@ -1,9 +1,33 @@
 {% extends 'template.html' %}
-{% block css %}{% endblock %}
+{% block css %}<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/contact-form.css') }}">{% endblock %}
 {% block page_header_title %}yichen.chong(){% endblock %}
 {% block content %}
 <div class="page-title">
     Contact Me
 </div>
-<div class="slide"><br/></div>
+<div class="slide">
+    <div class="slide-container center-justify">
+        {% if posted is not defined or not posted %}
+        <form method="post" enctype="multipart/form-data" class="contact-form">
+            <div>If you would like to get in contact, please use the email in the footer, or the web form below.</div><br/>
+            <div class="input-block text-area">
+                <input type="text" class="form-control" name="contact-name-field" placeholder="Name (required)" required>
+            </div>
+            <div class="input-block text-area">
+                <input type="email" class="form-control" name="contact-email-field" placeholder="Email (required)" required>
+            </div>
+            <div class="input-block text-area">
+                <input type="text" class="form-control" name="contact-subject-field" placeholder="Subject (required)" required>
+            </div>
+            <div class="input-block text-area">
+                <textarea rows="5" type="text" class="form-control" name="contact-msg-field" placeholder="Write your message here..."></textarea>
+            </div>
+            <input type="submit" value="SEND" class="submit-button">
+        </form>
+        {% else %}
+        <div>Thank you, I should be in touch with you shortly.</div><br/>
+        {% endif %}
+    </div>
+</div>
+<script src="{{ url_for('static', filename='js/contact-form.js') }}"></script>
 {% endblock %}

@@ -1,0 +1,121 @@
+<div class="page-title">
+    COMP40009 Computing Practical 1 Labs
+</div>
+<div class="slide center-justify">
+    <div class="slide-container center-justify">
+        <div class="content-category">
+            <div class="subtitle" style="text-align: center">
+                <i>
+                    Curricular projects from my first year in Computing
+                </i>
+            </div>
+            <br/>
+            <div style="text-align: center">
+                Skills: C, Computer science, Teamwork, Programming, Assembly, Git
+            </div>
+            <br/><br/>
+            <div class="project-text">
+                <div class="subtitle">
+                    The short version
+                </div>
+                <ul class="long-list">
+                    <li>
+                        Designed concurrent social network backend using Java
+                    </li>
+                    <li>
+                        Built spreadsheet application with expression evaluation and cell referencing using Java
+                    </li>
+                    <li>
+                        Created symbolic expression evaluator for differentiation in Haskell
+                    </li>
+                    <li>
+                        Implemented Google MapReduce and primitive search engine in Kotlin
+                    </li>
+                    <li>
+                        Participated in variety of other projects
+                    </li>
+                </ul>
+                <div class="subtitle">
+                    Introduction
+                </div>
+                <p> 
+                    Throughout our first year, we studied a module, Computing Practical 1, in which we studied 5 different
+                    programming languages (Haskell, Kotlin, Java, C, Assembly) under 3 different paradigms (functional,
+                    object-oriented, and imperative). The purpose of the course was to allow us to learn programming from
+                    a practical, rather than theoretical perspective. Elements of the course were featured in other parts
+                    of the curriculum (e.g. we had to reason about Haskell and Java code in our Logic and Reasoning
+                    module), and elements from other modules was brought into this course (e.g. we had to implement data
+                    structures and algorithms from our Graphs and Algorithms module in each language). This was to give us
+                    a practical foundation to our computer science theory.
+                </p>
+                <p>
+                    As such, we were given a hands-on laboratory
+                    exercise every Monday to complete by that Friday. In total, we completed 20 of these labs (across 
+                    Haskell, Kotlin and Java; for C, we had a <a href="projects/c_group_project">group&nbsp;project</a> instead).
+                    The subjects of these exercises were sometimes actually extremely interesting, despite the short timeframe
+                    for completion. A few of the labs are explained in detail below. However, none of the code will be posted
+                    for reasons relating to academic integrity (future students should note that all of the specification
+                    information provided below is far from complete; there are many requirements to the implementation details,
+                    so please do not try to cobble together your own implementation based on the specifications here).
+                </p>
+                <div class="subtitle">
+                    Social Network (Java)
+                </div>
+                <p>
+                    For the specification, we were tasked with creating the central point for all operations in a specific social
+                    network system. The social network features the capacity to register many users, where each user is assigned
+                    a "Board", which contains all messages received and sent by that user, ordered by time of creation. The
+                    implementation had to handle multiple users in parallel (concurrency was achieved by multithreading), and
+                    the sending and posting of messages had to be handled with a task queue ("Backlog") managed by several
+                    "Worker" threads. The implementation was quite complex from a concurrency standpoint, and I learnt a lot
+                    about concurrency through the project.
+                </p>
+                <div class="subtitle">
+                    Spreadsheet (Java)
+                </div>
+                <p>
+                    For the specification, we were tasked with building a primitive spreadsheet application capable of
+                    representing and evaluating symbolic expressions based on other cells. The GUI was already built for us,
+                    but we had to build a parser/evaluator for cell expressions, and then integrate it into the GUI. The tricky
+                    part of this was managing the symbolic parsing and evaluation. There were certain problems that seem
+                    intuitive, but also required some thinking to get to a good solution. For example, one problem was detecting
+                    loops in the cell references (e.g. if cell a1's value was "=b1" and cell b1's value was "=a1"). It was also
+                    tricky representing and managing abstract syntactic trees.
+                </p>
+                <div class="subtitle">
+                    Calculus (Haskell)
+                </div>
+                <p>
+                    I had to create a symbolic expression evaluator capable of expression evaluation, differentiation, and the
+                    truncated Maclaurin Series using Haskell. This was our introduction to the idea of abstract syntax trees and
+                    symbolic computation. We also had to work with the Maybe monad to create lookUp functions. I also completed
+                    the Extension consisting of several common rules to simplify expressions further.
+                </p>
+                <div class="subtitle">
+                    Search Engine - Google MapReduce (Kotlin)
+                </div>
+                <p>
+                    We were asked to build an implementation similar to Google's original MapReduce algorithm, used to
+                    index and allow for searching of HTML websites (using <span class="code-mono">`jsoup`</span> for the
+                    HTML parsing). To achieve this, we had to blend the functional programming constructs we studied in
+                    Haskell (notably and eponymously, map and reduce) with object-oriented concepts. The end product was
+                    a map of all possible search terms to their matching  search results ranked in order of relevance that
+                    we could then query, as well as the code to generate such a data structure from an arbitrary set of URLs.
+                </p>
+                <div class="subtitle">
+                    Other projects
+                </div>
+                <p>
+                    Other interesting projects included the implementation of the RSA algorithm and an implementation of
+                    Lindenmeyer-Systems (L-Systems) using Haskell, a web server in Kotlin, a discrete event simulation and
+                    museum simulation in Java. Examination problems I completed also included implementing K-Means clustering
+                    and a small functional programming language with supercombinators using Haskell, a tree-based multi-map
+                    and a seat booking system in Java, as well as a laser/mirror maze simulation with C. Interesting programs
+                    I've built while practicing for these tests (through past examination papers) also include a primitive
+                    Artificial Neural Network learning to simulate an XOR gate and a primitive Eliza program using C, as well as 
+                    a University management system and an implementation of Huffman coding in Java.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
