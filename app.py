@@ -5,19 +5,13 @@ import secret_config
 
 from flask import Flask, render_template, request
 import flask_cors
-from flask_mail import Mail, Message
+
+import sys
+import smtplib, ssl
 
 app = Flask(__name__)
+application = app
 flask_cors.CORS(app)
-mail = Mail(app)
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = secret_config.gmail_username
-app.config['MAIL_PASSWORD'] = secret_config.gmail_password
-app.config['MAIL_USE_TLS'] = False
-app.config['MAIL_USE_SSL'] = True
-mail = Mail(app)
-
 app.register_blueprint(projects)
 
 @app.route('/')
@@ -47,13 +41,34 @@ def projects_page():
 def contact_page():
     return render_template('contact-page.html')
 
+def log_message(message, app):
+    print(message.subject)
+
+email_dispatched.connect(log_message)
+
 @app.route('/contact/', methods=['POST'])
 def contact_page_form():
-    msg = Message(
-        subject=f"Webform email: {request.form['contact-subject-field']}",
-        recipients=[("Master", "yichenchong@yahoo.com")],
-        body=f"{request.form['contact-msg-field']}\n\n\n From: {request.form['contact-name-field']}, {request.form['contact-email-field']}",
-        sender='chongyichen03@gmail.com'
-    )
-    mail.send(msg)
+    
+    # Create a secure SSL context
+    context = ssl.create_default_context()
+    
+    from_addr = 'noreply@yichenchong.com'
+    to_addrs = ['yichenchong@yahoo.com', 'noreply@yichenchong.com']
+    msg = f"""\
+From: {from_addr}
+To: {to_addrs[0]}
+Subject: Webform email: {request.form['contact-subject-field']}
+{request.form['contact-msg-field']}
+
+Sent by {request.form['contact-name-field']}, {request.form['contact-email-field']}"""
+    
+    with smtplib.SMTP_SSL(
+        secret_config.current_mail_config["server"],
+        port=secret_config.current_mail_config["port"],
+        context=context
+    ) as server:
+        server.login(secret_config.current_mail_config["username"], secret_config.current_mail_config["password"])
+        server.sendmail(from_addr, to_addrs, msg)
+        server.quit()
+    print("mail sent..")
     return render_template('contact-page.html', posted=True)
