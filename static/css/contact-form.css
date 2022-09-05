@@ -101,3 +101,7 @@
 .contact-form .submit-button:focus {
     background-color: white;
 }
+
+.honey {
+    display: none;
+}

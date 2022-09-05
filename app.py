@@ -7,7 +7,8 @@ import secret_config
 from flask import Flask, render_template, request
 import flask_cors
 
-import smtplib, ssl
+import re
+
 
 # application stuff
 app = Flask(__name__)
@@ -65,22 +66,44 @@ def projects_page():
 def contact_page():
     return render_template('contact-page.html')
 
+mail_pattern = r"^[A-Za-z0-9]+[\._]?[A-Za-z0-9]+[@]\w+[.]\w{2,3}$"
+
 @app.route('/contact/', methods=['POST'])
 def contact_page_form():
-    # sanitization/verification
-
-    job = task_manager.scheduler.add_job(
-        func=task_manager.contact_form_email,
-        id="contact page form",
-        name="contact page form",
-        replace_existing=False,
-        kwargs={
-            "name": request.form['contact-name-field'],
-            "email": request.form['contact-email-field'],
-            "subject": request.form['contact-subject-field'],
-            "body": request.form['contact-msg-field']
-        }
+    print(request.form)
+    if task_manager.contact_form_tasks >= 50:
+        return "Sorry, server busy, please try again"
+    if not request.form.get('contact-robot-field'):
+        return render_template(
+            'contact-page.html',
+            posted_message="""Please select the "I am a human" checkbox"""
+        )
+    if re.search(mail_pattern, request.form['contact-email-field']) is None:
+        return render_template(
+            'contact-page.html',
+            posted_message="Sorry, invalid email. Please try again."
+        )
+    if request.form['contact-fish-field'] == "" and not request.form.get('contact-human-field'):
+        task_manager.contact_form_tasks += 1
+        job = task_manager.scheduler.add_job(
+            func=task_manager.contact_form_email,
+            id="contact page form",
+            name="contact page form",
+            replace_existing=False,
+            kwargs={
+                "name": request.form['contact-name-field'],
+                "email": request.form['contact-email-field'],
+                "subject": request.form['contact-subject-field'],
+                "body": request.form['contact-msg-field']
+            }
+        )
+        print(f"{job.name} job added")
+        return render_template(
+            'contact-page.html',
+            posted_message="Thank you, I should be in contact with you shortly."
+        )
+    print("fish detected")
+    return render_template(
+        'contact-page.html',
+        posted_message="Thank you, I should be in contact with you shortly."
     )
-    print (f"{job.name} job added")
-    
-    return render_template('contact-page.html', posted=True)
