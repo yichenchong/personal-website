@@ -10,10 +10,10 @@
         {% if posted_message is not defined %}
         <form method="post" enctype="multipart/form-data" class="contact-form">
             <div>If you would like to get in contact, please use the email in the footer, or the web form below.</div><br/>
+            <input title="message-body" placeholder="message" type="text" class="honey" name="contact-fish-field" autocomplete="off" tabindex="-1">
             <div class="input-block text-area">
                 <input type="text" class="form-control" name="contact-name-field" placeholder="Name (required)" required>
             </div>
-            <input title="message-body" placeholder="message" type="text" class="honey" name="contact-fish-field" autocomplete="off" tabindex="-1">
             <div class="input-block text-area">
                 <input type="email" class="form-control" name="contact-email-field" placeholder="Email (required)" required>
             </div>
@@ -24,7 +24,7 @@
                 <textarea rows="5" type="text" class="form-control" name="contact-msg-field" placeholder="Write your message here..."></textarea>
             </div>
             <div style="display: flex; flex-flow: row nowrap; justify-content: center;">
-                <input title="human-checkbox" type="checkbox" class="honey" name="contact-human-field" tabindex="-1">
+                <input title="human-checkbox" type="checkbox" class="honey-hidden" name="contact-human-field" tabindex="-1">
             </div>
             <div>
                 <input title="robot-checkbox" type="checkbox" name="contact-robot-field" tabindex="-1">
