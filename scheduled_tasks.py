@@ -1,28 +1,24 @@
 from flask_apscheduler import APScheduler
+from flask_mail import Mail, Message, email_dispatched
 import ssl, smtplib, secret_config
 
-scheduler = APScheduler()
+class TaskManager:
 
-def contact_form_email(name, email, subject, body):
-    context = ssl.create_default_context()
-    
-    from_addr = 'noreply@yichenchong.com'
-    to_addrs = ['yichenchong@yahoo.com', 'noreply@yichenchong.com']
-    msg = f"""\
-From: {from_addr}
-To: {to_addrs[0]}
-Subject: Webform email: {subject}
-{body}
+    def __init__(self, app):
+        self.scheduler = APScheduler()
+        self.app = app
+        self.mail = Mail(app)
 
-Sent by {name}, {email}"""
-    
-    with smtplib.SMTP_SSL(
-        secret_config.current_mail_config["server"],
-        port=secret_config.current_mail_config["port"],
-        context=context
-    ) as server:
-        server.login(secret_config.current_mail_config["username"], secret_config.current_mail_config["password"])
-        server.sendmail(from_addr, to_addrs, msg)
-        server.quit()
-    
-    print("mail sent.")
+    def contact_form_email(self, name, email, subject, body):
+        print("activate contact_form_email job...")
+        body = f"""{body}\n\nSent by {name}, {email}"""
+
+        print("Sending email:", subject, body)
+        with self.app.app_context():
+            self.mail.send_message(
+                body=body,
+                subject=f"Webform email: {subject}",
+                sender=("Portfolio Website", "noreply@yichenchong.com"),
+                recipients=["yichenchong@yahoo.com", "noreply@yichenchong.com"]
+            )
+        print("Sent email:", subject)

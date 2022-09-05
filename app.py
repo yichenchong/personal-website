@@ -1,7 +1,7 @@
 import helper.resume_loader.res_loader as rl
 import helper.projects.project_loader as pl
 from helper.projects.project_blueprint import project as projects
-from scheduled_tasks import scheduler, contact_form_email
+from scheduled_tasks import TaskManager
 import secret_config
 
 from flask import Flask, render_template, request
@@ -13,15 +13,26 @@ import smtplib, ssl
 app = Flask(__name__)
 application = app
 
+# application config
+class SchedConfig:
+    SCHEDULER_API_ENABLED = True
+    MAIL_SERVER = secret_config.current_mail_config['server']
+    MAIL_PORT = secret_config.current_mail_config['port']
+    MAIL_USERNAME = secret_config.current_mail_config['username']
+    MAIL_PASSWORD = secret_config.current_mail_config['password']
+    MAIL_USE_TLS = False
+    MAIL_USE_SSL = True
+app.config.from_object(SchedConfig())
+
+#scheduler
+task_manager = TaskManager(app)
+
 # CORS stuff
 flask_cors.CORS(app)
 
 # scheduler
-class SchedConfig:
-    SCHEDULER_API_ENABLED = True
-app.config.from_object(SchedConfig())
-scheduler.init_app(app)
-scheduler.start()
+task_manager.scheduler.init_app(app)
+task_manager.scheduler.start()
 
 # blueprints
 app.register_blueprint(projects)
@@ -56,8 +67,10 @@ def contact_page():
 
 @app.route('/contact/', methods=['POST'])
 def contact_page_form():
-    job = scheduler.add_job(
-        func=contact_form_email,
+    # sanitization/verification
+
+    job = task_manager.scheduler.add_job(
+        func=task_manager.contact_form_email,
         id="contact page form",
         name="contact page form",
         replace_existing=False,
@@ -70,26 +83,4 @@ def contact_page_form():
     )
     print (f"{job.name} job added")
     
-    # Create a secure SSL context
-#     context = ssl.create_default_context()
-    
-#     from_addr = 'noreply@yichenchong.com'
-#     to_addrs = ['yichenchong@yahoo.com', 'noreply@yichenchong.com']
-#     msg = f"""\
-# From: {from_addr}
-# To: {to_addrs[0]}
-# Subject: Webform email: {request.form['contact-subject-field']}
-# {request.form['contact-msg-field']}
-
-# Sent by {request.form['contact-name-field']}, {request.form['contact-email-field']}"""
-    
-#     with smtplib.SMTP_SSL(
-#         secret_config.current_mail_config["server"],
-#         port=secret_config.current_mail_config["port"],
-#         context=context
-#     ) as server:
-#         server.login(secret_config.current_mail_config["username"], secret_config.current_mail_config["password"])
-#         server.sendmail(from_addr, to_addrs, msg)
-#         server.quit()
-    # print("mail sent..")
     return render_template('contact-page.html', posted=True)
