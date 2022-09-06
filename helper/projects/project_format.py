@@ -9,6 +9,7 @@ class ProjectFormat:
         self.page = sql_data[5]
         self.blurb = sql_data[6]
         self.tags = self.get_tags(sql_data[7])
+        self.tags.sort()
         self.sanitized_tags = self.sanitize(self.tags)
         self.featured = bool(sql_data[8])
     

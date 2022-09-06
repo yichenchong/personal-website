@@ -6,114 +6,87 @@
         <div class="content-category">
             <div class="subtitle" style="text-align: center">
                 <i>
-                    Curricular projects from my first year in Computing
+                    Encoding Project for Science Fair and Research Class
                 </i>
             </div>
             <br/>
             <div style="text-align: center">
-                Skills: C, Computer science, Teamwork, Programming, Assembly, Git
+                Skills: Computer science, Python, Statistics
             </div>
             <br/><br/>
             <div class="project-text">
                 <div class="subtitle">
                     The short version
                 </div>
-                <ul class="long-list">
+                <ul>
                     <li>
-                        Designed concurrent social network backend using Java
+                        Created a system for DNA digital data storage that was 30% more efficient than system proposed by Microsoft Research
                     </li>
                     <li>
-                        Built spreadsheet application with expression evaluation and cell referencing using Java
+                        Presented ideas and earned Excellence Award at Sichuan Regional of Intel Science and Engineering Fair
                     </li>
                     <li>
-                        Created symbolic expression evaluator for differentiation in Haskell
-                    </li>
-                    <li>
-                        Implemented Google MapReduce and primitive search engine in Kotlin
-                    </li>
-                    <li>
-                        Participated in variety of other projects
+                        Designed experiment and wrote AP Research thesis, gave presentation and oral defense on ideas
                     </li>
                 </ul>
                 <div class="subtitle">
                     Introduction
                 </div>
                 <p> 
-                    Throughout our first year, we studied a module, Computing Practical 1, in which we studied 5 different
-                    programming languages (Haskell, Kotlin, Java, C, Assembly) under 3 different paradigms (functional,
-                    object-oriented, and imperative). The purpose of the course was to allow us to learn programming from
-                    a practical, rather than theoretical perspective. Elements of the course were featured in other parts
-                    of the curriculum (e.g. we had to reason about Haskell and Java code in our Logic and Reasoning
-                    module), and elements from other modules was brought into this course (e.g. we had to implement data
-                    structures and algorithms from our Graphs and Algorithms module in each language). This was to give us
-                    a practical foundation to our computer science theory.
+                    I remember very distinctly that, when I attended John Hopkins University’s Centre for Talented Youth (CTY) programme, studying Introduction to Biomedical Sciences (specifically the genetics unit), the teacher mentioned DNA computing as an active field – the use of DNA to store and carry information, with the base pairs forming the “bits” of the informational language. The idea intrigued me, and I used to ponder about the problem all the time; even as I learnt more about how bits represent information in modern computers, I found myself constantly attempting to extend the concepts to base 4 systems, for the purpose of DNA Digital Data Storage.
                 </p>
                 <p>
-                    As such, we were given a hands-on laboratory
-                    exercise every Monday to complete by that Friday. In total, we completed 20 of these labs (across 
-                    Haskell, Kotlin and Java; for C, we had a <a href="projects/c_group_project">group&nbsp;project</a> instead).
-                    The subjects of these exercises were sometimes actually extremely interesting, despite the short timeframe
-                    for completion. A few of the labs are explained in detail below. However, none of the code will be posted
-                    for reasons relating to academic integrity (future students should note that all of the specification
-                    information provided below is far from complete; there are many requirements to the implementation details,
-                    so please do not try to cobble together your own implementation based on the specifications here).
+                    One day, I was enjoying a cryptogram (substitution cipher decryption) puzzle when an idea dawned on me. One of the oldest methods of decrypting substitution ciphers was based upon the fact that English tended to have drastically varying letter frequencies in its natural language use. I had also recently learned about Huffman coding, so I realised that perhaps one of the easiest ways to encode textual data in base 4 (or really any base) was a variable-length encoding system (each letter is mapped to a letter of varying length, so that the information can, on average, be kept shorter).
+                </p>
+                <p>
+                    I had to navigate several constraints regarding the particulars of DNA digital data storage, but eventually settled upon a system that theoretically should work. Then, I attempted some preliminary probabilistic calculations (given that letter frequencies are a commonly estimated statistic) to derive that my method should be able to encrypt and decrypt letter pairings with a space usage of about 50% (a 50% increase in spatial efficiency) that of the method utilized by the European Bioinformatics Institute (EBI).
+                </p>
+                <p>
+                    I presented this concept at the Sichuan Regional of the Intel Science and Engineering Fair. However, due to a lack of evidence (my data was more mathematical than experimental), a judge selection error (due to a misunderstanding, my project was thought of as a genetic project, so they assigned me an ecologist as a judge), and fierce competition (some of those who also did not advance to the next stage included projects on cost-effective 3-D printed prosthetics and an emergency service drone payload delivery system), I was unable to proceed to the international round. I did come home with an Excellence Award (the third-tier award for the top 20%-30% of projects), as well as some learning pointers for future research.
+                </p>
+                <p>
+                    The next year, during AP Research, I took what I had learned into account, and created a more scientific, data-driven experiment, in which I tested my method against the method used by a new method developed by Microsoft Research and the University of Washington. I also verified the effectiveness of my method: the new system was slightly more efficient than that designed by EBI, but I was still able to achieve a 33% increase in spatial efficiency.
                 </p>
                 <div class="subtitle">
-                    Social Network (Java)
+                    Information (Prior Literature)
                 </div>
                 <p>
-                    For the specification, we were tasked with creating the central point for all operations in a specific social
-                    network system. The social network features the capacity to register many users, where each user is assigned
-                    a "Board", which contains all messages received and sent by that user, ordered by time of creation. The
-                    implementation had to handle multiple users in parallel (concurrency was achieved by multithreading), and
-                    the sending and posting of messages had to be handled with a task queue ("Backlog") managed by several
-                    "Worker" threads. The implementation was quite complex from a concurrency standpoint, and I learnt a lot
-                    about concurrency through the project.
+                    The idea of DNA Digital Data Storage can be found as early as 1964, when a scientist, Dr Norman Wiener, proposed the idea in an interview with the U.S. News and World Report, stating that a device storing information using DNA could be much smaller, and carry a much larger set of data. That same year, Soviet scientist Mikhail Neiman, with inspiration from the interview, published a paper on the idea and the general considerations in developing this technology, but concluded that the requisite technology was not in place yet.
+                </p>
+                <p>
+                    Over the next few decades there was no further discussion of the idea, but DNA sequencing and synthesis technology grew in leaps and bounds. In 2012, a group of Harvard researchers published in Science that they had encoded multiple pieces of data within DNA. However, they had used a primitive mapping system that directly encoded data using ASCII into bytes. Here, they ran into the problem of homopolymers, sequences above the length of 5 bases, causing problems with the sequencing and extraction of the data. This was tested and confirmed by a Stanford team as well, who wrote that sequencing bases above length 5 was still a problem. This problem introduced an interesting problem in that any DNA Digital Data encoding solution must ensure that bases are not repeated five or more times.
+                </p>
+                <p>
+                    The following year, the EBI team corrected for this problem by using a base 3 encoding system, and using one bases as a substitution base, to alternate with any repeating bases. Basically, the presence of this base would tell the decoder that it was supposed to be a repeat of the previous base.
+                </p>
+                <p>
+                    Then, a team from Microsoft Research and the University of Washington improved the system by using XOR redundancy for the encoding, as well as a different encoding system. The system worked on a rotating code (a base 3 system as well, but the meaning of each base changed with each base encoded). It also used a modified Huffman code to reduce all base lengths to 4 or 5 bits, achieving a higher storage density than the EBI method.
                 </p>
                 <div class="subtitle">
-                    Spreadsheet (Java)
+                    Implementation
                 </div>
                 <p>
-                    For the specification, we were tasked with building a primitive spreadsheet application capable of
-                    representing and evaluating symbolic expressions based on other cells. The GUI was already built for us,
-                    but we had to build a parser/evaluator for cell expressions, and then integrate it into the GUI. The tricky
-                    part of this was managing the symbolic parsing and evaluation. There were certain problems that seem
-                    intuitive, but also required some thinking to get to a good solution. For example, one problem was detecting
-                    loops in the cell references (e.g. if cell a1's value was "=b1" and cell b1's value was "=a1"). It was also
-                    tricky representing and managing abstract syntactic trees.
+                    My implementation was much more simplified. I also settled on a chiefly ternary (base 3) system, due to the homopolymer constraint, but I reserved the last base (the “spacer nucleotide”) to demarcate the boundary between characters. That means that each character could be encoded as any base-sequence of up to 5 bases long (which allows for up to 120 characters, before the system would have to be extended to avoid 6-base homopolymer sequences), followed by the “spacer” base. The 120-character limit was not a massive problem for textual data, as ASCII includes 128 characters, of which 32 are commands like DELETE, leaving only 96 characters needed to encode most text.
+                </p>
+                <div class="title-img">
+                    <div>
+                        <img src="{{ url_for('static', filename='img/dnadig.png') }}"  width="100%" id="dnadig"/>
+                    </div>
+                </div>
+                <p>
+                    The system effectively formed a variable-encoding scheme where each character was mapped to a base-sequence of between 2 and 6 base pairs long. With uniform character frequencies, this would lead to an average base pair sequence length of 4.67 with the 96 ASCII characters, which is higher than Microsoft Research’s 4.4 characters. However, the massive increase in the range of base-pair sequence lengths, combined with the variability in range of letter frequencies in natural text, means that with natural text, my average base pair sequence length fell to 2.90 characters (determined experimentally), while Microsoft Research’s base pair sequence length remained relatively constant.
+                </p>
+                <p>
+                    However, I must admit that my system does have its flaws. First, the method’s effectiveness is mainly limited to natural English (or at least European) textual data, and the text of other languages, or even data of other formats cannot be encoded using this method. Second, it requires upon a pre-agreed dictionary of encodings. Much of my time researching this topic involved getting more accurate data on character counts (particularly in differentiating between capital and lower-case characters). I ended up assuming that all lower-case characters were more common than all upper-case characters, and structuring my dictionary that way, but this is most likely far from accurate, so a future system would potentially need to restructure. However, this also means that the data I gathered is probably an underestimation of the potential of the idea.
                 </p>
                 <div class="subtitle">
-                    Calculus (Haskell)
+                    Individual Learning and Growth
                 </div>
                 <p>
-                    I had to create a symbolic expression evaluator capable of expression evaluation, differentiation, and the
-                    truncated Maclaurin Series using Haskell. This was our introduction to the idea of abstract syntax trees and
-                    symbolic computation. We also had to work with the Maybe monad to create lookUp functions. I also completed
-                    the Extension consisting of several common rules to simplify expressions further.
+                    I learnt a lot of technical information throughout this process, from digital architecture to information theory, as I began to apply concepts from modern computing to the problem. I also read a lot about DNA sequencing technologies, to truly understand the constraints of the problem. I even learnt how to use TeX to typeset my final report. I really learnt a lot at the Intel Science and Engineering Fair, from browsing other participants’ projects, and discussing their ideas with them.
                 </p>
-                <div class="subtitle">
-                    Search Engine - Google MapReduce (Kotlin)
-                </div>
                 <p>
-                    We were asked to build an implementation similar to Google's original MapReduce algorithm, used to
-                    index and allow for searching of HTML websites (using <span class="code-mono">`jsoup`</span> for the
-                    HTML parsing). To achieve this, we had to blend the functional programming constructs we studied in
-                    Haskell (notably and eponymously, map and reduce) with object-oriented concepts. The end product was
-                    a map of all possible search terms to their matching  search results ranked in order of relevance that
-                    we could then query, as well as the code to generate such a data structure from an arbitrary set of URLs.
-                </p>
-                <div class="subtitle">
-                    Other projects
-                </div>
-                <p>
-                    Other interesting projects included the implementation of the RSA algorithm and an implementation of
-                    Lindenmeyer-Systems (L-Systems) using Haskell, a web server in Kotlin, a discrete event simulation and
-                    museum simulation in Java. Examination problems I completed also included implementing K-Means clustering
-                    and a small functional programming language with supercombinators using Haskell, a tree-based multi-map
-                    and a seat booking system in Java, as well as a laser/mirror maze simulation with C. Interesting programs
-                    I've built while practicing for these tests (through past examination papers) also include a primitive
-                    Artificial Neural Network learning to simulate an XOR gate and a primitive Eliza program using C, as well as 
-                    a University management system and an implementation of Huffman coding in Java.
+                    Most of the growth from this project came, however, from softer skills. I learnt how to conduct better, more data-driven research (sometimes the hard way), as well as how to present it. I learnt how to conduct systematic literature reviews and write theses longer than the papers I was used to. I also learnt many new ways of thinking about problems, as well as how to argue for the pros and cons of certain systems. Most importantly, through the years of studying this topic, I learnt that while mathematics and science taught in school typically has “right” and “wrong” answers, that many real-world solutions in these fields are based upon many subjective design choices.
                 </p>
             </div>
         </div>

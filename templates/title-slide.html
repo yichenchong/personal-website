@@ -3,7 +3,7 @@
 	<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/title-slide.css') }}">
 {% endblock %}
 {% block content %}
-	<div class="slide around-justify noselect full-slide">
+	<div class="slide center-justify noselect full-slide">
 		<div class="slide-container evenly-justify">
 			<div id="loading-title-container">
 				<div id="hello_world_message">
@@ -32,6 +32,8 @@
 				</div>
 			</div>
 		</div>
+		<div class="spacer"></div>
+		<div class="spacer"></div>
 	</div>
 	<script src="{{ url_for('static', filename='js/landing-page.js') }}"></script>
 {% endblock %}

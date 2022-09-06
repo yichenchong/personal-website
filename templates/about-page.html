@@ -18,7 +18,7 @@
                 <br/><br/>
                 I'm an <span class="highlight">incredibly fast hands-on learner</span>, with a 
                 <span class="highlight">penchant for picking up new skills</span>.
-                If you want someone who has great test-taking and right-answer-regurgitation abilities, don't hire me.
+                If you want someone who has great test-taking and right-answer-regurgitation abilities, that's not me.
                 However, if you want <span class="highlight">someone who can take projects and execute on them</span> or who can
                 <span class="highlight">generate creative solutions to issues</span>,
                 I'm&nbsp;your&nbsp;man.
@@ -177,12 +177,10 @@
                     <p>Select any skill to view my projects involving it:</p>
                     <div class="skills-container noselect">
                         {% for item in skills %}
-                        <a href="/projects?filter={{ item[1]|e }}">
-                            <div class="skill">
+                            <a class="skill" href="/projects?filter={{ item[1]|e }}">
                                 <div class="img-container"><img src="{{ item[2] }}"></div>
                                 <div class="text">{{ item[1] }}</div>
-                            </div>
-                        </a>
+                            </a>
                         {% endfor%}
                     </div>
                 </div>

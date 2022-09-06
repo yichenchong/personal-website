@@ -66,4 +66,5 @@ def rm_tag(name, tag):
     con.commit()
 
 change_subtitle("Personal Website v1", "Personal Portfolio Project (Work in Progress)")
-add_tag("Microsoft Office")
+add_tag("Computing Practical 1 C Group Project", "Git")
+add_tag("Computing Practical 1 Labs", "Git")

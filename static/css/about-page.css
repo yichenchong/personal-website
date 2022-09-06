@@ -161,6 +161,10 @@
     background-color: #444;
     border-radius: 1em;
 }
+.skill:focus-visible {
+    background-color: var(--terminal-green);
+    color: black;
+}
 .skill:hover {
     opacity: 0.8;
 }

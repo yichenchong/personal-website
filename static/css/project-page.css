@@ -152,6 +152,14 @@ img.left-wrap-img {
     padding: 0.5em 2vw;
     padding-left: 0;
 }
+.title-img {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
 
 .project-text a {
     text-decoration: underline;
@@ -221,4 +229,8 @@ img.left-wrap-img {
     .content-container .content-heading .content-logo img {
         border-radius: 20%;
     }
+}
+
+#dnadig {
+    filter: sepia(1) invert(1) hue-rotate(-90deg) contrast(100%) drop-shadow(5px 5px 16px var(--terminal-green));
 }

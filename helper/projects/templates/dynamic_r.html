@@ -1,1 +1,86 @@
-404 page yet to be created: I'm working on writing this page, please be patient.
+<div class="page-title">
+    Dynamic-R
+</div>
+<div class="slide center-justify">
+    <div class="slide-container center-justify">
+        <div class="content-category">
+            <div class="subtitle" style="text-align: center">
+                <i>
+                    Research Project on Epidemiology during the Covid-19 Pandemic
+                </i>
+            </div>
+            <br/>
+            <div style="text-align: center">
+                Skills: Data, Mathematics, Statistics, Biology
+            </div>
+            <br/><br/>
+            <div class="project-text">
+                <div class="subtitle">
+                    The short version
+                </div>
+                <ul>
+                    <li>
+                        Researched epidemiology and related information at the start of the COVID pandemic
+                    </li>
+                    <li>
+                        Designed a system that allows the R statistic to be a dynamic measure of spread
+                    </li>
+                    <li>
+                        Conducted research and wrote preprint proposing ideas
+                    </li>
+                </ul>
+                <div class="subtitle">
+                    Introduction
+                </div>
+                <p> 
+                    As the COVID-19 pandemic started spreading world-wide, I recall stewing in my army camp as a wave of helplessness washed over the world as cases started increasingly rapidly everywhere. I, then, recall grabbing my phone and trying to learn everything there was to know about the virus. I studied the virology, and at that point, realised I should probably leave the protein-folding simulations to the experts. Then, I turned my attention to public health (arguably the biggest mess in this past pandemic) and noticed many shortcomings.
+                </p>
+                <p>
+                    I read about the frequently quoted R-value statistic and realised that treating it as a static variable was a massive shortcoming. What it measured (the number of people that each infected person is expected to pass it onto) was highly dynamic and greatly depended on public policy. As such, it would be much more useful to treat it as a dynamic variable. I did the maths for it, and created a dynamic version of it, that would average the R values between a certain timeframe; I chose 3- and 5-day timeframes for my paper, but any timeframe could be justified with a trade-off between dynamism and confidence.
+                </p>
+                <p>
+                    That weekend, when I went home, I quickly got to compiling the research I read about, and quickly drafted a paper on my ideas. Then, I refined the paper’s ideas that week in camp on my phone, before going back the following weekend to publish it. The paper was more widely received than I had imagined, and I was read and discussed by quite a few epidemiologists and made its way into the literature reviews of several papers.
+                </p>
+                <div class="subtitle">
+                    Information (Prior Literature)
+                </div>
+                <p>
+                    The commonly known R0 value, or the basic reproduction number, measures how many secondary carriers an average infectious case will infect in an entirely susceptible population. The basic definition of R0 is the amount of infectious transmissions per unit time in contact with other people multiplied by the unit time in contact with others. Obviously, the R0 is dynamic. Public health measures aiming to reduce the transmissibility of the contact time people have with each other (e.g. curfews), or the number of infectious transmissions (e.g. through the use of protective equipment). The number has known to change during epidemics. For example, during the SARS outbreak, the R0 value dropped rapidly following public health measures that were taken. As such, the R0 value should be used as a dynamic indicator, and not necessarily as a stable predictor of future trends. The R value is an even more dynamic version of this. It is a measure of how many secondary carriers an average infectious case will infect, regardless of the susceptibility of the population. At the early stages of a pandemic, the 2 values are equal, but as the infected population begins to increase, and the susceptible population begins to decrease, the 2 values start to differ, and the R value begins to be a more valid indicator of the overall transmission of the disease.
+                </p>
+                <p>
+                    There are 2 main models of R estimation. The first model is to account for large amounts of data regarding behaviour of the infected population (e.g., traffic data), as well as data about the likelihood of transmission to build a simulation of predicted transmissions, usually with stochastic methods.2 This method is viewed as more accurate, as it factors in many different variables, but still has several flaws. First, the simulation obviously may not include confounding factors that have not been considered, causing inaccuracies. Secondly, it does not make sense to use R values to make predictions if said R values comes from predictions already. The R value is meant to be a simple indicator that can be used to make predictions. Third, the lack of responsiveness in the simulations means that the estimated R value is relatively static. If the R value changed rapidly, say, over the course of a few days, this model would be unable to keep up.
+                </p>
+                <p>
+                    The second estimation method of the R value works with a simplified model of infection in 3 stages – Exposed, Infectious, and Isolated, which is a modified version of the SEIR structure. “Exposed” refers to the stage when a person becomes infected by a disease vector, but has not reached the stage where it can infect another person; “Infectious” refers to the stage when the person is a potential disease vector; “Isolated” refers to the stage where the person loses the ability to be a disease vector (i.e. the person either is isolated in quarantine, recovers, or passes away). This model was developed during the SARS epidemic by Lipsitch et al.
+                </p>
+                <div class="subtitle">
+                    Implementation
+                </div>
+                <p>
+                    The method developed adopts a statistical approach – it discounts individual variables, using holistic statistics of cases per day, as well as basic viral data. This vastly simplifies the problem, allowing for quick, responsive calculation.
+                </p>
+                <p>
+                    The R estimator of this model deals with 3 variables. E and I are viral constants representing the lengths of the Exposed and Infectious stages respectively, in terms of time. K is the logarithmic growth rate, which is affected by many statistical factors, but bears the simple definition of being the rate of growth in the natural logarithm of the infected population. With these variables, R is defined as R=K<sup>2</sup>EI+K(E+I)+1. 
+                </p>
+                <p>
+                    E and I are viral constants, and this paper will use the same values (E = 7 and I = 9). K is defined to be the logarithmic growth rate, or the derivative of N(t), where N(t) is the number of confirmed cases at a certain time t (given in days from the start of the outbreak, which is 16 December 2019, in the case of 2019-nCoV). The estimation of K has been relatively static in past methods, and historical, using 6 timeframes over the course of the outbreak to create an average logarithmic growth factor. However, this method is prone to a couple flaws and insufficiencies. One key novelty of the method presented, therefore, was its dynamic estimation of the K value.
+                </p>
+                <p>
+                    Since the instantaneous growth rate is impossible to estimate without regressing to static regression-based curve-fitting models, it is obvious that the estimate must rely on average growth rates. The process of an average logarithmic growth rate, therefore, is taking 2 different days, finding the difference in ln(N) between them, and dividing that value by the time elapsed.
+                </p>
+                <p>
+                    For the data to be current, it should start from the most recently available data (most likely from the previous day). Furthermore, we should consider a range of K, with an average value, to clearly state the likely ranges of error.
+                </p>
+                <p>
+                    I computed the dynamic R value over time, with two different timeframes selected, and it did seem to demonstrate the dynamism of the R-value and showed trends in the spread of COVID-19.
+                </p>
+                <div class="subtitle">
+                    Individual Learning and Growth
+                </div>
+                <p>
+                    I learned quite a lot about the process of publishing a preprint, as well as the process of doing research. Furthermore, I take pride in the fact I took part in the discourse around one of the greatest public health challenges of the past century.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

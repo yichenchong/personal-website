@@ -15,8 +15,12 @@
 	<body>
 		<div class="page-header" id="title-page-header">
 			<div id="header-logo-container">
-				<div class="title-logo">
-					{%block page_header_title %}{% endblock %}
+				<div class="title-logo noselect">
+					{% if self.page_header_title() %}
+					<a href="/">
+						{%block page_header_title %}{% endblock %}
+					</a>
+					{% endif %}
 				</div>
 			</div>
             <div id="menu-bar-container" class="noselect">
@@ -53,7 +57,7 @@
 							<a href="https://www.linkedin.com/in/yc-chong/" class="fa fa-lg fa-linkedin"></a>
 						</li>
 						<li>
-							<a href="mailto:yichenchong@yahoo.com" class="fa fa-lg fa-envelope"></a>
+							<a href="&#109;&#97;il&#116;&#111;%3A&#121;ichench&#111;ng%40&#121;&#97;h&#111;&#111;&period;c&#111;m" class="fa fa-lg fa-envelope"></a>
 						</li>
 						<li>
 							<a href="#" class="fa fa-lg fa-file"></a>
