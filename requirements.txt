@@ -3,4 +3,7 @@ flask_cors
 flask_mail
 flask_apscheduler
 setuptools
-verify-email
+sqlalchemy
+psycopg2-binary
+apscheduler
+py-postgresql

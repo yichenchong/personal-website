@@ -1,7 +1,7 @@
 import helper.resume_loader.res_loader as rl
 import helper.projects.project_loader as pl
 from helper.projects.project_blueprint import project as projects
-from scheduled_tasks import TaskManager
+from scheduled_tasks import TaskManager, TmPersist
 import secret_config
 
 from flask import Flask, render_template, request
@@ -13,10 +13,14 @@ import re
 # application stuff
 app = Flask(__name__)
 application = app
+TmPersist.persist_store = TmPersist(app)
+task_manager = TaskManager(app)
 
 # application config
 class SchedConfig:
     SCHEDULER_API_ENABLED = True
+    SCHEDULER_JOBSTORES = TmPersist.persist_store.jobstores
+    SCHEDULER_EXECUTORS = TmPersist.persist_store.executors
     MAIL_SERVER = secret_config.current_mail_config['server']
     MAIL_PORT = secret_config.current_mail_config['port']
     MAIL_USERNAME = secret_config.current_mail_config['username']
@@ -25,15 +29,12 @@ class SchedConfig:
     MAIL_USE_SSL = True
 app.config.from_object(SchedConfig())
 
-#scheduler
-task_manager = TaskManager(app)
-
 # CORS stuff
 flask_cors.CORS(app)
 
 # scheduler
-task_manager.scheduler.init_app(app)
-task_manager.scheduler.start()
+TmPersist.persist_store.scheduler.init_app(app)
+TmPersist.persist_store.scheduler.start()
 
 # blueprints
 app.register_blueprint(projects)
@@ -85,7 +86,7 @@ def contact_page_form():
         )
     if request.form['contact-fish-field'] == "" and not request.form.get('contact-human-field'):
         task_manager.contact_form_tasks += 1
-        job = task_manager.scheduler.add_job(
+        job = TmPersist.persist_store.scheduler.add_job(
             func=task_manager.contact_form_email,
             id="contact page form",
             name="contact page form",
