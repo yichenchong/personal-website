@@ -8,7 +8,9 @@ from flask import Flask, render_template, request
 import flask_cors
 
 import re
+import datetime
 
+print(f"===starting web server at {datetime.datetime.now()}===")
 
 # application stuff
 app = Flask(__name__)
@@ -108,3 +110,5 @@ def contact_page_form():
         'contact-page.html',
         posted_message="Thank you, I should be in contact with you shortly."
     )
+
+print(f"===flask application initiated at {datetime.datetime.now()}===")

@@ -8,8 +8,9 @@
 <div class="slide">
     <div class="slide-container center-justify">
         {% if posted_message is not defined %}
-        <form method="post" enctype="multipart/form-data" class="contact-form">
+        <form method="post" enctype="multipart/form-data" class="contact-form" name="contact-form" onsubmit="return validateForm();">
             <div>If you would like to get in contact, please use the email in the footer, or the web form below.</div><br/>
+            <div class="validation-error"></div>
             <input title="message-body" placeholder="message" type="text" class="honey" name="contact-fish-field" autocomplete="off" tabindex="-1">
             <div class="input-block text-area">
                 <input type="text" class="form-control" name="contact-name-field" placeholder="Name (required)" required>
@@ -27,7 +28,7 @@
                 <input title="human-checkbox" type="checkbox" class="honey-hidden" name="contact-human-field" tabindex="-1">
             </div>
             <div>
-                <input title="robot-checkbox" type="checkbox" name="contact-robot-field" tabindex="-1">
+                <input class="robot-checkbox" title="robot-checkbox" type="checkbox" name="contact-robot-field" tabindex="-1">
                 <label>I am a human</label>
             </div>
             <br/>

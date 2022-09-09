@@ -112,3 +112,8 @@
 .honey-hidden {
     display: none;
 }
+
+.validation-error {
+    display: none;
+    color: red;
+}

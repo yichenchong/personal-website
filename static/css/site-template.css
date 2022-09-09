@@ -461,6 +461,18 @@ a.fa.fa-lg:focus-visible {
     }
 }
 
+@media only screen and (min-width: 450px) {
+    .small-screen-break {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .big-screen-break {
+        display: none;
+    }
+}
+
 /** footer **/
 
 @media only screen and (orientation: landscape) and (max-height: 400px) {
