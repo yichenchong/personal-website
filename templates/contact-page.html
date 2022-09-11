@@ -1,5 +1,6 @@
 {% extends 'template.html' %}
-{% block css %}<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/contact-form.css') }}">{% endblock %}
+{% block css %}<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/contact-form.css') }}">
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/css-checkbox.css') }}">{% endblock %}
 {% block page_header_title %}yichen.chong(){% endblock %}
 {% block content %}
 <div class="page-title">
@@ -9,27 +10,27 @@
     <div class="slide-container center-justify">
         {% if posted_message is not defined %}
         <form method="post" enctype="multipart/form-data" class="contact-form" name="contact-form" onsubmit="return validateForm();">
-            <div>If you would like to get in contact, please use the email in the footer, or the web form below.</div><br/>
+            <div style="text-align: center; font-size: 14pt">If you would like to get in contact, please use the email in the footer, or the web form below.</div><br/>
             <div class="validation-error"></div>
             <input title="message-body" placeholder="message" type="text" class="honey" name="contact-fish-field" autocomplete="off" tabindex="-1">
-            <div class="input-block text-area">
+            <div class="input-block textarea">
                 <input type="text" class="form-control" name="contact-name-field" placeholder="Name (required)" required>
             </div>
-            <div class="input-block text-area">
+            <div class="input-block textarea">
                 <input type="email" class="form-control" name="contact-email-field" placeholder="Email (required)" required>
             </div>
-            <div class="input-block text-area">
+            <div class="input-block textarea">
                 <input type="text" class="form-control" name="contact-subject-field" placeholder="Subject (required)" required>
             </div>
-            <div class="input-block text-area">
-                <textarea rows="5" type="text" class="form-control" name="contact-msg-field" placeholder="Write your message here..."></textarea>
+            <div class="input-block textarea">
+                <textarea rows="10" type="text" class="form-control" name="contact-msg-field" placeholder="Write your message here..."></textarea>
             </div>
             <div style="display: flex; flex-flow: row nowrap; justify-content: center;">
                 <input title="human-checkbox" type="checkbox" class="honey-hidden" name="contact-human-field" tabindex="-1">
             </div>
             <div>
-                <input class="robot-checkbox" title="robot-checkbox" type="checkbox" name="contact-robot-field" tabindex="-1">
-                <label>I am a human</label>
+                <input id="robot-checkbox" class="css-checkbox robot-checkbox" title="robot-checkbox" type="checkbox" name="contact-robot-field" tabindex="-1">
+                <label for="robot-checkbox"> &nbsp;&nbsp;I am a human</label>
             </div>
             <br/>
             <input type="submit" value="SEND" class="submit-button">

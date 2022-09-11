@@ -8,17 +8,10 @@
     border-radius: 5px;
     position: relative;
     margin-bottom: 15px;
-    -moz-transition: opacity 0.2s ease-out, all 0.3s ease-out;
-    -o-transition: opacity 0.2s ease-out, all 0.3s ease-out;
-    -webkit-transition: opacity 0.2s ease-out, all 0.3s ease-out;
-    transition: opacity 0.2s ease-out, all 0.3s ease-out;
-}
-.contact-form .input-block .form-control:hover {
-    opacity: 0.9;
-    transition: opacity 0.1s ease-out;
-}
-.contact-form .input-block:hover {
-    opacity: 0.95;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
 }
 
 .contact-form .input-block.active {
@@ -26,6 +19,7 @@
     border: solid 1px #000;
 }
 .contact-form .input-block textarea {
+    font-size: max(3vh, 12pt);
     background-color: transparent;
     transition: all 0.3s ease;
 }
@@ -35,7 +29,6 @@
     resize: none;
     color: white;
     box-sizing: border-box;
-    font-size: max(2.7vh, 12pt);
 }
 .contact-form .input-block label {
     position: absolute;
@@ -49,7 +42,7 @@
 }
 .contact-form .input-block .form-control {
     background-color: transparent;
-    padding: 0.6em 1em;
+    padding: 15px 25px;
     border: none;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
@@ -58,7 +51,7 @@
     z-index: 2;
     font-size: max(3vh, 15pt);
     color: #333;
-    height: 2.8em;
+    height: 80px;
     line-height: 1.5em;
     width: 100%;
     resize: none;
