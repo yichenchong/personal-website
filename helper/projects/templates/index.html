@@ -7,7 +7,7 @@
             {% for item in projects %}
                 {% if params.get("filter") == None or params.get("filter") in item.tags %}
                     <div class="content-container" onclick="window.location='/projects/{{ item.page }}'">
-                        <div class="content-heading" bg-img="{{ url_for('static', filename='img/vm2.png') }}">
+                        <div class="content-heading">
                             <div class="content-logo"></div>
                             <div class="content-text">
                                 <div class="content-title">{{ item.name }}</div>
