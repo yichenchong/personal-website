@@ -1,4 +1,3 @@
-import helper.resume_loader.res_loader as rl
 from blueprints.projects.project_blueprint import project as projects
 from data.layer_one.io.cache import LayerOneCaches
 from scheduled_tasks import TaskManager, TmPersist
@@ -16,7 +15,7 @@ print(f"===starting web server at {datetime.datetime.now()}===")
 app = Flask(__name__)
 application = app
 TmPersist.persist_store = TmPersist(app)
-task_manager = TaskManager(app)
+task_manager = TaskManager()
 
 # application config
 class SchedConfig:
@@ -35,8 +34,8 @@ app.config.from_object(SchedConfig())
 flask_cors.CORS(app)
 
 # scheduler
-TmPersist.persist_store.scheduler.init_app(app)
-TmPersist.persist_store.scheduler.start()
+# TmPersist.persist_store.scheduler.init_app(app)
+# TmPersist.persist_store.scheduler.start()
 print("application and task manager initialized..")
 
 # cache
