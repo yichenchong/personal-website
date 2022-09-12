@@ -35,8 +35,8 @@ app.config.from_object(SchedConfig())
 flask_cors.CORS(app)
 
 # scheduler
-# TmPersist.persist_store.scheduler.init_app(app)
-# TmPersist.persist_store.scheduler.start()
+TmPersist.persist_store.scheduler.init_app(app)
+TmPersist.persist_store.scheduler.start()
 print("application and task manager initialized..")
 
 # cache
