@@ -1,0 +1,25 @@
+<div class="content-container" onclick="window.location='/projects/{{ page }}'">
+    <div class="content-heading">
+        <div class="content-logo"></div>
+        <div class="content-text">
+            <div class="content-title">{{ title }}</div>
+            <div class="content-subtitle">{{ subtitle }}</div>
+            <div class="content-dates">{{ dates }}</div>
+            <div class="skills">
+                <div class="skills-label">
+                    Skills:
+                </div>
+                <div class="skills-container noselect">
+                    {% for i in skills %}
+                        <div class="skill" onclick="window.location='/projects?filter={{ i }}'">
+                            <a href="/projects?filter={{ i }}">
+                                <div class="text">{{ i }}</div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="content-logo"></div>
+    </div>
+</div>

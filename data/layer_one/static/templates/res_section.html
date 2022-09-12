@@ -1,0 +1,31 @@
+<div class="slide">
+    <div class="slide-container center-justify">
+        <div class="content-category">
+            {% for i in res_data %}
+                <div class="subtitle">{{ i }}</div>
+                {% for j in res_data[i] %}
+                    <div class="content-container">
+                        <div class="content-heading">
+                            <div class="content-logo">
+                                <img width="100%" src="{{ j[5] }}" alt="{{ j[2] }} logo">
+                            </div>
+                            <div class="content-text">
+                                <div class="content-title">{{ j[2] }}</div>
+                                <div class="content-subtitle">{{ j[3] }}</div>
+                                <div class="content-dates">{{ j[4] }}</div>
+                            </div>
+                            <div class="content-coll-indicator"><div class="center-text-container">+</div></div>
+                        </div>
+                        <div class="content-expand">
+                            <div class="content-logo-spacer"></div>
+                            <div class="content-main-text">
+                                {{ j[6]|safe }}
+                            </div>
+                            <div class="content-logo-spacer"></div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+</div>

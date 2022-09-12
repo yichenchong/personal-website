@@ -1,5 +1,4 @@
 from flask_apscheduler import APScheduler
-from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.executors.pool import ThreadPoolExecutor, ProcessPoolExecutor
 from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
 from flask_mail import Mail
@@ -7,8 +6,10 @@ from secret_config import postgres_user, postgres_pw
 
 import urllib.parse
 
+
 class TmPersist:
     persist_store = None
+
     def __init__(self, app):
         self.app = app
         self.scheduler = APScheduler()
@@ -26,9 +27,7 @@ class TmPersist:
 
 class TaskManager:
 
-    def __init__(self, app):
-        # persist store
-        TmPersist.persist_store = TmPersist(app)
+    def __init__(self):
         # configs
         self.mail = Mail(TmPersist.persist_store.app)
         self.contact_form_tasks = 0
@@ -42,7 +41,6 @@ class TaskManager:
         self.__dict__.update(state)
         self.mail = Mail(TmPersist.persist_store.app)
         self.jobstores = TmPersist.persist_store.jobstores
-        
 
     def contact_form_email(self, name, email, subject, body):
         print("activate contact_form_email job...")

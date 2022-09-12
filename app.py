@@ -1,6 +1,6 @@
 import helper.resume_loader.res_loader as rl
-import helper.projects.project_loader as pl
-from helper.projects.project_blueprint import project as projects
+from blueprints.projects.project_blueprint import project as projects
+from data.layer_one.io.cache import LayerOneCaches
 from scheduled_tasks import TaskManager, TmPersist
 import secret_config
 
@@ -35,11 +35,18 @@ app.config.from_object(SchedConfig())
 flask_cors.CORS(app)
 
 # scheduler
-TmPersist.persist_store.scheduler.init_app(app)
-TmPersist.persist_store.scheduler.start()
+# TmPersist.persist_store.scheduler.init_app(app)
+# TmPersist.persist_store.scheduler.start()
+print("application and task manager initialized..")
+
+# cache
+LayerOneCaches.init_caches()
+print("caches initialized..")
 
 # blueprints
 app.register_blueprint(projects)
+print("blueprints registered..")
+
 
 # app pages
 @app.route('/')
@@ -49,31 +56,22 @@ def landing_page():
 
 @app.route('/about/')
 def about_page():
+    print(LayerOneCaches.skills_cache)
     return render_template(
         'about-page.html',
-        education=rl.get_education()[::-1],
-        experience=rl.get_experience()[::-1],
-        certification=rl.get_certification()[::-1],
-        skills=rl.get_skills()
+        resume_doc=LayerOneCaches.resume_doc,
+        skills=LayerOneCaches.skills_cache
     )
 
-@app.route('/projects/', methods=['GET', 'POST'])
-def projects_page():
-    return render_template(
-        'project-page.html',
-        projects=pl.get_projects()[::-1],
-        params=request.args.to_dict()
-    )
 
 @app.route('/contact/', methods=['GET'])
 def contact_page():
     return render_template('contact-page.html')
 
-mail_pattern = r"^[A-Za-z0-9]+[\._]?[A-Za-z0-9]+[@]\w+[.]\w{2,3}$"
 
 @app.route('/contact/', methods=['POST'])
 def contact_page_form():
-    print(request.form)
+    mail_pattern = r"^[A-Za-z0-9]+[\._]?[A-Za-z0-9]+[@]\w+[.]\w{2,3}$"
     if task_manager.contact_form_tasks >= 50:
         return "Sorry, server busy, please try again"
     if not request.form.get('contact-robot-field'):
@@ -111,4 +109,5 @@ def contact_page_form():
         posted_message="Thank you, I should be in contact with you shortly."
     )
 
-print(f"===flask application initiated at {datetime.datetime.now()}===")
+
+print(f"===flask application initialized at {datetime.datetime.now()}===")

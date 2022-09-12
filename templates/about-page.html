@@ -31,83 +31,7 @@
     </div>
     <div class="slide">
         <div class="slide-container center-justify">
-            <div class="content-category">
-                {% if education is defined %}
-                    <div class="subtitle">Education</div>
-                    {% for item in education %}
-                        <div class="content-container">
-                            <div class="content-heading">
-                                <div class="content-logo">
-                                    <img width="100%" src="{{ item.image }}" alt="{{ item.place }} logo">
-                                </div>
-                                <div class="content-text">
-                                    <div class="content-title">{{ item.place }}</div>
-                                    <div class="content-subtitle">{{ item.title }}</div>
-                                    <div class="content-dates">{{ item.dates }}</div>
-                                </div>
-                                <div class="content-coll-indicator"><div class="center-text-container">+</div></div>
-                            </div>
-                            <div class="content-expand">
-                                <div class="content-logo-spacer"></div>
-                                <div class="content-main-text">
-                                    {{ item.description_data|safe }}
-                                </div>
-                                <div class="content-logo-spacer"></div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                {% endif %}
-                {% if experience is defined %}
-                    <div class="subtitle">Experience</div>
-                    {% for item in experience %}
-                        <div class="content-container">
-                            <div class="content-heading">
-                                <div class="content-logo">
-                                    <img width="100%" src="{{ item.image }}" alt="{{ item.place }} logo">
-                                </div>
-                                <div class="content-text">
-                                    <div class="content-title">{{ item.place }}</div>
-                                    <div class="content-subtitle">{{ item.title }}</div>
-                                    <div class="content-dates">{{ item.dates }}</div>
-                                </div>
-                                <div class="content-coll-indicator"><div class="center-text-container">+</div></div>
-                            </div>
-                            <div class="content-expand">
-                                <div class="content-logo-spacer"></div>
-                                <div class="content-main-text">
-                                    {{ item.description_data|safe }}
-                                </div>
-                                <div class="content-logo-spacer"></div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                {% endif %}
-                {% if certification is defined %}
-                    <div class="subtitle">Certification</div>
-                    {% for item in certification %}
-                        <div class="content-container">
-                            <div class="content-heading">
-                                <div class="content-logo">
-                                    <img width="100%" src="{{ item.image }}" alt="{{ item.place }} logo">
-                                </div>
-                                <div class="content-text">
-                                    <div class="content-title">{{ item.title }}</div>
-                                    <div class="content-subtitle">{{ item.place }}</div>
-                                    <div class="content-dates">{{ item.dates }}</div>
-                                </div>
-                                <div class="content-coll-indicator"><div class="center-text-container">+</div></div>
-                            </div>
-                            <div class="content-expand">
-                                <div class="content-logo-spacer"></div>
-                                <div class="content-main-text">
-                                    {{ item.description_data|safe }}
-                                </div>
-                                <div class="content-logo-spacer"></div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                {% endif %}
-            </div>
+            {{ resume_doc | safe }}
         </div>
     </div>
     <div class="slide shortest-slide">
@@ -177,9 +101,9 @@
                     <p>Select any skill to view my projects involving it:</p>
                     <div class="skills-container noselect">
                         {% for item in skills %}
-                            <a class="skill" href="/projects?filter={{ item[1]|e }}">
-                                <div class="img-container"><img src="{{ item[2] }}"></div>
-                                <div class="text">{{ item[1] }}</div>
+                            <a class="skill" href="/projects?filter={{ item[2]|e }}">
+                                <div class="img-container"><img src="{{ item[3] }}"></div>
+                                <div class="text">{{ item[2] }}</div>
                             </a>
                         {% endfor%}
                     </div>
