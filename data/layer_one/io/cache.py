@@ -24,6 +24,7 @@ class LayerOneCaches:
         for proj in project_data_raw:
             puuid = proj[0]
             skills = ProjectGetter.get_skill_names_by_project_uuid(puuid)
+            skills.sort()
             templated_string = project_template.render(
                 title=proj[2],
                 subtitle=proj[3],
