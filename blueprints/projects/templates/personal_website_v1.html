@@ -1,1 +1,77 @@
-404 page yet to be created: I'm working on writing this page, please be patient.
+<div class="page-title">
+    Personal Portfolio (v1)
+</div>
+<div class="slide center-justify">
+    <div class="slide-container center-justify">
+        <div class="content-category">
+            <div class="subtitle" style="text-align: center">
+                <i>
+                    Well, this is meta.
+                </i>
+            </div>
+            <br/>
+            <div style="text-align: center">
+                Skills: CSS, Computer science, Flask, HTML, Programming, Python, SQL, Web development
+            </div>
+            <br/><br/>
+            <div class="project-text">
+                <div class="subtitle">
+                    The short version
+                </div>
+                <ul>
+                    <li>
+                        Rigorously overengineered a full-stack website
+                    </li>
+                    <li>
+                        Implemented caches, databases, schedulers, asynchronicity
+                    </li>
+                    <li>
+                        Result: this.
+                    </li>
+                </ul>
+                <div class="subtitle">
+                    Introduction
+                </div>
+                <p> 
+                    As I was looking into applying to internships, I realised I needed a personal portfolio website. While I did get a position that I wanted at ByteDance, I found that I needed a space to put all my projects down and, perhaps, in the future, to host my projects. And the results – well, you’re looking at it.
+                </p>
+                <p>
+                    While many have pointed out that I could have used a website builder or hosted my website as a frontend page, I wanted a more scale-able solution, that I could expand to perhaps even host my own programs as demos one day. I may have overengineered the problem, but the result is a rigorously designed, full-stack website.
+                </p>
+                <div class="subtitle">
+                    Implementation
+                </div>
+                <p>
+                    I threw practically everything I knew about web application development into this project. Caches, databases, asynchronicity, and scalability were all central to how I designed this page.
+                </p>
+                <p>
+                    Even my planning for this project was structured professionally. I adopted an Agile “Cowboy” methodology, employing a modified version of Sprints, Epics, Stories, and Tasks in Trello, allowing me to build and deploy new features and changes quickly and iteratively. Git, specifically GitHub, is also being used to track and manage versions and to deploy the app from my local test environment to the production server hosted by A2Hosting.
+                </p>
+                <p>
+                    I wanted my data to be portable, persistent, and mostly separate from my design, so I started by cataloguing the data I wanted to include in an SQLite database. The database had a catalogue of all my past job experiences, education, certification, skills, and projects, which would allow me to modify the record with SQL calls. I also employed document caching to combat the low page speeds associated with querying the database on page load. I render much of the content as the server starts and store much of the preliminary “layer-one” information in memory.
+                </p>
+                <p>
+                    The site also features an asynchronous job store and background task manager using Flask-APScheduler and PostgreSQL. Currently, the scheduler mainly supports sending me emails from the Contact Me page. Still, it will eventually be used to schedule API calls, demo tasks, and deployment features in the future. The Contact Me page also features honeypot spam detection and front-end and back-end verification methods.
+                </p>
+                <p>
+                    The over-engineered system design has allowed the site to operate with very low latency, with a desktop Google Page Speed Insight score of 92-99, depending on the page.
+                </p>
+                <p>
+                    The over-engineered system design has allowed the site to operate with very low latency, with a desktop Google Page Speed Insight score of 92-99, depending on the page. However, it was still rigorously designed with responsiveness in mind, and can, for the most part, be operated similarly with any screen size above 300px in width (I'm sorry to anyone using the Samsung Galaxy Fold, there may be a few design bugs for you).
+                </p>
+                <div class="subtitle">
+                    Next Steps
+                </div>
+                <p>
+                    Future sprints will be focused on several facets. First, for the design, I will shave off a few more seconds on page speed tests by using text compression methods, minifying my CSS and JS resources, and restructuring stylesheets to allow for faster First Painted Content. In addition, I plan to add a few more design features, such as a carousel of featured projects on my project page and custom pages. There are a few priority-two bugs and accessibility issues I intend to address. Content-wise, I will add my projects from my internship at ByteDance, attach some documentation for my testimonials, and link more related content. I also hope to add some project demos to their relevant pages.
+                </p>
+                <p>
+                    Next, in terms of the system, I will implement further concurrency fixes to my SQLite databases and hopefully add a content modification API, along with a CI/CD pipeline, potentially in Jenkins. I will have to look more into different toolchains and develop the best solution for my deployment. I also will investigate further optimising the SEO of the page to increase publicity. Finally, I will explore client-side caching solutions to optimise my page speeds further.
+                </p>
+                <p>
+                    If, at any point, you do notice a bug, please do not hesitate to report it to me using the Contact Me form. The link can be found in the header.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
