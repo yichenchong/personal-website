@@ -1,1 +1,54 @@
-404 page yet to be created: I'm working on writing this page, please be patient.
+<div class="page-title">
+    Word Games Solver
+</div>
+<div class="slide center-justify">
+    <div class="slide-container center-justify">
+        <div class="content-category">
+            <div class="subtitle" style="text-align: center">
+                <i>
+                    Identified and solved a class of word games
+                </i>
+            </div>
+            <br/>
+            <div style="text-align: center">
+                Skills: C, C++, Computer science, Engineering, Mathematics, Physics, Robotics, Teamwork
+            </div>
+            <br/><br/>
+            <div class="project-text">
+                <div class="subtitle">
+                    Introduction
+                </div>
+                <p>
+                    This project is one of my longest-running hobby projects. While the problem itself is relatively trivial, I included this project as it would be easy to host a demonstration for it. During the next sprint, I will create a demonstration of my solver here, so stay posted!
+                </p>
+                <p>
+                    In 2017, there was a fad featuring the game Word Cookies. The game gave players several letters, which players would then have to rearrange and choose to form words. The key was that players could not repeat the same letter unless the game gave multiple copies of the same character.
+                </p>
+                <p>
+                    My friends and I hosted an impromptu competition to see who could build the best solver for it. As we were not very experienced coders, most of our solutions revolved around generating permutations of the letters and had horrendously slow runtimes and time complexities. My solution won by cutting down the possibility of space before generating permutations, which had similar time complexities, but a fraction of the runtime.
+                </p>
+                <p>
+                    A few weeks later, I realised I could use frequency maps to directly search through the possibility space, decreasing the time complexity. I reimplemented it, and sure enough, it was able to speed up the process.
+                </p>
+                <p>
+                    This year the Wordle craze broke out. I rushed to build my solver as soon as I started playing, but the YouTube channel 3Blue1Brown beat me to it. However, I soon began playing the other New York Times word games – Spelling Bee and Letterboxed and started thinking about how I might use similar concepts to solve those.
+                </p>
+                <p>
+                    As they were conceptually similar, I realised I could unify a class of word games, which would be the perfect task for an object-oriented programming interface. I wrote several solvers, first in Python and later in Java, to solve this class of problems.
+                </p>
+                <div class="subtitle">
+                    Implementation
+                </div>
+                <p>
+                    The class of problems solvable with this method are those that give players a structure, usually with constituent letters, but with specific rules regarding the relationships between consecutive and non-consecutive letters, and players must generate words that adhere to the rules. In terms of complexity, the problems are generally linearly verifiable. Given a structure and a solution, one could verify its correctness in an amount of time proportional to the length of the solution. Therefore, the simplest solution has an upper bound in the product of the dictionary's size and the answer's length.
+                </p>
+                <p>
+                    I created three interfaces to solve this class of problems: a "word data" interface, a "structure" interface, and a "game" interface. The "structure" interface defines the structure and rules that each game follows. The "game" interface contains a "console_io" method, which handles loading user input into a data structure, and a "main" method, which goes through the dictionary, verifying the possibility of each word. Finally, the "word data" interface contains the data processed from each word loaded from the dictionary that would need to be processed by the structure interface. I also created a "word dictionary" class that would be able to load multiple dictionaries and assist in the process of searching the possible space in each one.
+                </p>
+                <p>
+                    While not the most efficient implementation for each game, given that we could cut down the possibility space even before searching through it, the time complexity is optimal. Furthermore, the object-oriented structure allows coders to write programs solving new word games in a near-declarative style and very quickly.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
