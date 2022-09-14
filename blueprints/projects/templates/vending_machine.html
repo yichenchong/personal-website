@@ -1,1 +1,63 @@
-404 page yet to be created: I'm working on writing this page, please be patient.
+<div class="page-title">
+    Vending Machine Committee
+</div>
+<div class="slide center-justify">
+    <div class="slide-container center-justify">
+        <div class="content-category">
+            <div class="subtitle" style="text-align: center">
+                <i>
+                    Led student team to build a vending machine
+                </i>
+            </div>
+            <br/>
+            <div style="text-align: center">
+                Skills: C, C++, Computer science, Engineering, Mathematics, Physics, Robotics, Teamwork
+            </div>
+            <br/><br/>
+            <div class="project-text">
+                <div class="subtitle">
+                    Introduction
+                </div>
+                <p>
+                    I was good friends with the Student Union president; one day, he discussed the Student Union's plans to purchase a vending machine. He mentioned how expensive they were, which surprised me, as they are relatively simple machines, so I pulled up prices on my phone, and he was right. They were dramatically overpriced.
+                </p>
+                <p>
+                    I ran the calculations and calculated that building it from scratch, even without industrial manufacturing scale, would cost about 3/4 of that, while their specifications, especially the fact that the machine would be indoors, meant that we could further cut the cost by about half.
+                </p>
+                <p>
+                    At the time, I also engaged in fundraising efforts for my robotics team initiative. I could use the funding, so I proposed that my team build the vending machine for a split in the profits and a share of the generated publicity, which I could use in my lobbying efforts with the administration. He agreed, and we planned the logistics of the endeavour, and I hand-picked two engineers I wanted from my robotics team, with me as the overall Engineering Lead.
+                </p>
+                <p>
+                    By the time we laid out how to structure the enterprise (we would form a temporary sub-committee of the Student Union), the robotics team initiative had collapsed due to policy changes. Still, my team decided to press on anyway for the technical challenge.
+                </p>
+                <p>
+                    We built the entire vending machine from scratch in about five months. It was a massive success; we helped start the business and broke even financially within less than two months.
+                </p>
+                <div class="subtitle">
+                    Implementation
+                </div>
+                <p>
+                    The vending machine was designed to be cheap. We cut all unnecessary features that would increase the cost and custom-built it for its use cases. First, that meant we changed most of the structural elements from metal to wood, with only metal shelving and critical support structures, as we were going to put the machine indoors, so the machine did not have to be weather-resistant. We did not require a refrigeration system, as the weather controls indoors were relatively cold. This dramatically cut down the material costs and the labour time, as wood is generally easier to shape and join, especially as the school would not allow us to bring in a welding machine (even though they did have a plasma cutter in the workshop). We also did not implement a coin or bill acceptor, instead opting for the contactless payment technology already widely adopted in China, and preliminary surveys suggested a 90+% market penetration among our student population. 60% of the student population said that they no longer carried cash around, which meant that a coin or bill acceptor would have been widely unused. Acceptors are also a large cost-contributor to vending machines and would be a pain to repair, so removing them from our design saved hundreds of dollars.
+                </p>
+                <p>
+                    The mechanical structure of the vending machine was simple. The machine was a large wooden box, supported in the corners by aluminium extrusions, with two compartments - one for the electronics and power components and one which contained all the machine's food and drink and dispensing elements. The dispensing mechanism was a geared motor connected to screw-like coils that, when turned, would push items off the plasma-cut shelving. The shelving rested on wooden 1x4 planks, which fit into slots carved into supports extruding from the side walls, allowing us to adjust their height.
+                </p>
+                <p>
+                    Electronically, the machine included two systems: e-payment and security systems. The e-payment system was a mobile-SIM connected system that would generate a QR code, allow users to scan it, select the item they wanted, and pay online. The vending machine would then dispense the paid-for goods. For the security system, we opted to use RFID keys read through an invisible panel in the front that would open solenoid doors, allowing the main entrance to open for maintenance and restocking purposes. Both these systems used a combination of Arduinos, microcomputers, and off-the-shelf electronic components. We also wired up a power system, using a wall socket box and a plug head to create a makeshift extension cord that provided power to the AC components and the AC-to-DC converter that powered all the DC components. The power system also diverted energy directly to the lighting.
+                </p>
+                <div class="subtitle">
+                    Business
+                </div>
+                <p>
+                    The vending machine did very well business-wise. This was just as much a business achievement as an engineering one. Even after we launched the vending machine in a school assembly, it had a few bugs that affected its usage, but the business model was strong enough to survive.
+                </p>
+                <p>
+                    First, we captured a perfect niche in products. Most of the school population could not leave campus during the day, but as a well-off and international population, there was a desire for international snacks. Therefore, we sourced snacks from these countries, such as Dr Pepper, root beer, and Kettle chips, and made them available in school. This attracted intense interest from a broad segment of the student population.
+                </p>
+                <p>
+                    Second, there were robust publicity efforts. We launched the machine at an assembly with a humorous video and speech that attracted attention and posted posters around the school. By the end of the next day, hundreds of people had flocked to the vending machine to see it working. Even after bugs and machine failures began - I think one of the store-bought components burnt out because when replaced, the machine worked fine - we implemented business policies to limit the damage. We had a speedy refund policy, in which we returned the money that people lost due to the machine's failures almost immediately, with no questions asked. This generated trust (if not in the machine, at least in the committee behind it) and further incentivised sales.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
