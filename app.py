@@ -55,7 +55,6 @@ def landing_page():
 
 @app.route('/about/')
 def about_page():
-    print(LayerOneCaches.skills_cache)
     return render_template(
         'about-page.html',
         resume_doc=LayerOneCaches.resume_doc,

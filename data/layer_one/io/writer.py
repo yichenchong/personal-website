@@ -11,7 +11,6 @@ class ProjectWriter:
     @classmethod
     def connect(cls):
         project_db_path = os.path.join(db_dir, 'projects.db')
-        print(project_db_path)
         cls.con = sqlite3.connect(project_db_path, check_same_thread=False)
         cls.cur = cls.con.cursor()
 
@@ -43,7 +42,6 @@ class ProjectWriter:
             skill_uuid = cls.cur.fetchone()
             if skill_uuid is None:
                 skill_uuid = uuid.uuid4().hex
-                print(skill_uuid)
                 cls.cur.execute(f"INSERT INTO skills ( uuid, skill_name, featured ) VALUES ('{ skill_uuid }', '{i}', 0 );")
             skill_uuid = skill_uuid[0] if isinstance(skill_uuid, tuple) else skill_uuid
             cls.cur.execute(f"INSERT INTO project_skills ( project_uuid, skill_uuid ) VALUES ( '{proj_uuid}', '{skill_uuid}' );")
@@ -56,7 +54,6 @@ class ResumeWriter:
     @classmethod
     def connect(cls):
         resume_db_path = os.path.join(db_dir, 'resume.db')
-        print(resume_db_path)
         cls.con = sqlite3.connect(resume_db_path, check_same_thread=False)
         cls.cur = cls.con.cursor()
 

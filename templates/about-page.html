@@ -101,7 +101,7 @@
                     <p>Select any skill to view my projects involving it:</p>
                     <div class="skills-container noselect">
                         {% for item in skills %}
-                            <a class="skill" href="/projects?filter={{ item[2]|e }}">
+                            <a class="skill" href="/projects?filter={{ item[2]|urlencode }}">
                                 <div class="img-container"><img src="{{ item[3] }}"></div>
                                 <div class="text">{{ item[2] }}</div>
                             </a>

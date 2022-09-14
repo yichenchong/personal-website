@@ -11,8 +11,8 @@
                 </div>
                 <div class="skills-container noselect">
                     {% for i in skills %}
-                        <div class="skill" onclick="window.location='/projects?filter={{ i }}'">
-                            <a href="/projects?filter={{ i }}">
+                        <div class="skill" onclick="window.location='/projects?filter={{ i | urlencode }}'">
+                            <a href="/projects?filter={{ i | urlencode }}">
                                 <div class="text">{{ i }}</div>
                             </a>
                         </div>
