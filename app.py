@@ -3,7 +3,7 @@ from data.layer_one.io.cache import LayerOneCaches
 from scheduled_tasks import TaskManager, TmPersist
 import secret_config
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, Response
 import flask_cors
 
 import re
@@ -51,6 +51,12 @@ print("blueprints registered..")
 @app.route('/')
 def landing_page():
     return render_template('title-slide.html')
+
+@app.route('/sitemap.xml')
+def sitemap():
+    with open("./static/sitemap/sitemap.xml", "r") as f:
+        sitemap_info = f.read()
+    return Response(sitemap_info, mimetype='text/xml')
 
 
 @app.route('/about/')
