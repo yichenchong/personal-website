@@ -1,1 +1,44 @@
-404 page yet to be created: I'm working on writing this page, please be patient.
+<div class="page-title">
+    Mortality Models
+</div>
+<div class="slide center-justify">
+    <div class="slide-container center-justify">
+        <div class="content-category">
+            <div class="subtitle" style="text-align: center">
+                <i>
+                    Applying machine learning and data science techniques to predicting death rates
+                </i>
+            </div>
+            <br/>
+            <div style="text-align: center">
+                Skills: AI/ML, Data, Mathematics, Python, R
+            </div>
+            <br/><br/>
+            <div class="project-text">
+                <p>
+                    Last year was a major transition year for my family: my father retired, my brother was in his final year of university, and I finished my national service and was to start my university journey. In times of change, we all look through certainty, and the only certainties in life are death and taxes. Whether looking at pensions, insurance, or investments, any form of financial transaction is, to some degree, betting that you’ll live to see the pay-out, or pass away to receive the benefits. Therefore, as our family was wrangling with these monetary issues, I set to work modelling life and death itself.
+                </p>
+                <p>
+                    I downloaded data from the Singapore Government’s department of statistics, particularly on the death rates of Singaporean citizens grouped by age, year, and sex. Then, I applied data science and machine learning techniques to produce a function that closely models the trends in mortality rates over the last 20 years.
+                </p>
+                <p>
+                    While excessive extrapolation is probably inaccurate, the interpolation results were incredible, to say the least. Upon visual observation of the data, I found that the likelihood of death increased exponentially with age and decreased exponentially over the years. I used this as an assumption, to formulate a variable expression of the relationship I observed, before using a custom-built gradient descent algorithm in Python to perform a regression analysis for the purpose of discovering the coefficients. Graphs of my data, compared with the statistical data can be found below.
+                </p>
+                <p>
+                    The data was captured using Excel and R but have been copied over to plot.ly for interactive viewing and easy embedding. In the axes, the "year" refers to the number of years from 2000, and the death rate is deaths per thousand people per year. The plot.ly interactive graph (accessed by clicking either image below) is best viewed on computers.
+                </p>
+                <div style="display: flex; flex-flow: row wrap; justify-content: center; border-style: none; min-height: 500px;">
+                    <div>
+                        <a href="https://plotly.com/~yichenchong/35/?share_key=2uFKhilOH6YqWSk6WIevlK" title="MaleDeathModel" style="display: block; text-align: center;"><img src="https://plotly.com/~yichenchong/35.png?share_key=2uFKhilOH6YqWSk6WIevlK" alt="MaleDeathModel" style="max-width: 100%;width: 600px;"  width="600"/></a>
+                    </div>
+                    <div>
+                        <a href="https://plotly.com/~yichenchong/32/?share_key=IlyfsJOS2Qv8LWN6A0xyAP" title="FemaleDeathModel" style="display: block; text-align: center;"><img src="https://plotly.com/~yichenchong/32.png?share_key=IlyfsJOS2Qv8LWN6A0xyAP" alt="FemaleDeathModel" style="max-width: 100%;width: 600px;"  width="600" /></a>
+                    </div>
+                </div>
+                <p>
+                    I also applied Monte Carlo simulation techniques to help simulate decision outcomes within the family, assisting my family members in making key financial decisions. However, these have not been included for privacy reasons.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
