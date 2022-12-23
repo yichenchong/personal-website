@@ -116,6 +116,7 @@
     background-color: #444;
     border-radius: 2em;
     padding: 0 10px;
+    min-width: 3ch;
 }
 .skill:hover {
     opacity: 0.8;

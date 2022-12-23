@@ -198,14 +198,13 @@ ul li {
 
 .footer {
     height: 15vh;
-    min-width: 100vw;
+    width: 100vw;
     display: flex;
     flex-flow: column nowrap;
     margin: 0;
     padding: 0 0 0 0;
     scroll-snap-align: start;
     color: var(--main-text);
-    margin: 1vh;
 }
 
 .socialbtns, .socialbtns ul, .socialbtns li {
@@ -220,17 +219,21 @@ ul li {
 }
 
 .socialbtns .fa {
-    width: max(min(4.8vh, 2.4vw), 24px);
-    height: max(min(3.36vh, 1.68vw), 16.8px);
+    width: max(min(4.8vw, 2.4vh), 45px);
+    height: max(min(3.36vw, 1.68vh), 35px);
     color: #FFF;
-    background-color: #000;
-    border: 1px solid #FFF;
-    padding-top: max(min(1.6vh, 0.8vw), 8px);
-    border-radius: max(min(2.64vh, 1.32vw), 13.2px);
-    -moz-border-radius: max(min(2.64vh, 1.32vw), 13.2px);
-    -webkit-border-radius: max(min(2.64vh, 1.32vw), 13.2px);
-    -o-border-radius: max(min(2.64vh, 1.32vw), 13.2px);
-    font-size: max(min(2vh, 1vw), 10px);
+    background-color: rgba(50, 50, 50, 0.1);
+    /*border: 1px solid #FFF;*/
+    padding-top: max(min(1.6vw, 0.8vh), 8px);
+    padding-bottom: max(min(0.2vw, 0.1vh), 1.5px);
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: max(min(4.8vw, 2.4vh), 48px);
+    -moz-border-radius: max(min(4.8vw, 2.4vh), 48px);
+    -webkit-border-radius: max(min(4.8vw, 2.4vh), 48px);
+    -o-border-radius: max(min(4.8vw, 2.4vh), 48px);
+    font-size: max(min(1.68vw, 0.84vh), 18px);
+    line-height: max(min(1.8vw, 0.9vh), 25px);
 }
 
 .socialbtns .fa:hover {
@@ -267,7 +270,7 @@ ul li {
     flex-flow: row nowrap;
 }
 
-.spacer {
+.spacer:not(#page-top) {
     height: 5vh;
 }
 
@@ -314,9 +317,15 @@ ul li {
 /**************/
 
 /** header **/
-#page-top {
-    height: min(5vh, 3vw);
+#page-top.spacer {
     min-height: 80px;
+    height: min(5vh, 5vw);
+}
+.page-header.invisible {
+    opacity: 0;
+    z-index: 0;
+    display: block;
+    position: static;
 }
 
 #header-logo-container {
@@ -388,7 +397,7 @@ a.fa.fa-lg:focus-visible {
     }
     .content-main-text .hovertext.linked:hover:before {
         display: none;
-    } 
+    }
 
 
     /** header **/
@@ -432,26 +441,6 @@ a.fa.fa-lg:focus-visible {
         list-style: none outside none;
         display: inline-block;
     }
-    
-    .socialbtns .fa {
-        width: max(min(4.8vw, 2.4vh), 24px);
-        height: max(min(3.36vw, 1.68vh), 16.8px);
-        color: #FFF;
-        background-color: #000;
-        border: 1px solid #FFF;
-        padding-top: max(min(1.6vw, 0.8vh), 8px);
-        border-radius: max(min(2.64vw, 1.32vh), 13.2px);
-        -moz-border-radius: max(min(2.64vw, 1.32vh), 13.2px);
-        -webkit-border-radius: max(min(2.64vw, 1.32vh), 13.2px);
-        -o-border-radius: max(min(2.64vw, 1.32vh), 13.2px);
-        font-size: max(min(2vw, 1vh), 10px);
-    }
-    
-    .socialbtns .fa:hover {
-        color: #000;
-        background-color: #FFF;
-        border: 1px solid var(--accent);
-    }
 }
 
 /** header **/
@@ -483,6 +472,13 @@ a.fa.fa-lg:focus-visible {
         width: 6vh;
         height: 4.2vh;
         border-radius: 4vh;
+    }
+}
+
+@media only screen and (min-height: 1000px) {
+    .socialbtns .fa {
+        border: 1px solid #FFF;
+        background-color: transparent;
     }
 }
 
