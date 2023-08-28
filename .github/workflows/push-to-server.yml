@@ -1,6 +1,6 @@
 name: push-to-server
 run-name: ${{ github.actor }} pushing to server
-on: [push]
+on: [push, workflow_dispatch]
 jobs:
   deploy:
     runs-on: ubuntu-latest
