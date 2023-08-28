@@ -1,0 +1,19 @@
+name: push-to-server
+run-name: ${{ github.actor }} pushing to server
+on: [push]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: pull latest code from github
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          port: ${{ secrets.SSH_PORT }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: |
+            cd /home/yichench/personal-website
+            git pull
+      - name: cpanel deploy
+        uses:
