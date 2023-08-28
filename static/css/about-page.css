@@ -172,14 +172,15 @@
     position: relative;
     left: -0.5vw;
     max-height: 90%;
+    max-width: 30px;
 }
 .skill .img-container img {
     object-fit: contain;
     height: 100%;
+    max-width: 20px;
 }
 .skill .text {
-    margin: auto 1vw;
-    margin-left: 0vw;
+    margin: auto 1vw auto 0;
 }
 .content-category .subtitle.text {
     text-align: left;
