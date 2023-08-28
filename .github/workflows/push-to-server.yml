@@ -15,5 +15,3 @@ jobs:
           script: |
             cd /home/yichench/personal-website
             git pull
-      - name: cpanel deploy
-        uses:
