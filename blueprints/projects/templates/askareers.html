@@ -1,0 +1,69 @@
+<div class="page-title">
+    Designing for Real People (DRP)
+</div>
+<div class="slide center-justify">
+    <div class="slide-container center-justify">
+        <div class="content-category">
+            <div class="subtitle" style="text-align: center">
+                <i>
+                    For our DRP Project, we created a web app called ASKareers, which helps students find industry alumni and mentors
+                </i>
+            </div>
+            <br/>
+            <div style="text-align: center">
+                Skills: Computer Science, Web development, Git, Programming, Teamwork, DevOps, HTML, CSS, JavaScript, Python, WebSockets
+            </div>
+            <br/><br/>
+            <div class="project-text">
+                <div class="subtitle">
+                    The short version
+                </div>
+                <ul>
+                    <li>
+                        Created a web application to connect students with industry alumni and mentors
+                    </li>
+                    <li>
+                        Implemented a real-time chat system using WebSockets
+                    </li>
+                    <li>
+                        Implemented an intelligent search system using state-of-the-art NLP techniques including keyword extraction, embeddings, and vector stores
+                    </li>
+                </ul>
+                <div class="subtitle">
+                    Introduction
+                </div>
+                <p>
+                    The Designing for Real People (DRP) project is a month-long project at the end of the second year of the Computer Science program at Imperial College London. The project is designed to give students a taste of what it is like to work in a team on a real-world project, and to give them the opportunity to apply the skills they have learned in the first two years of the degree. The project is done in groups of 4 students, and the groups are asked to create a real-time, multi-user web application that solves a real-world problem. Students are asked to use a user-centred design process, following an agile, iterative approach.
+                </p>
+                <img src="https://ridicidw.sirv.com/drp-screenshots/screenshot.png" width="40%" class="left-wrap-img" alt="Screenshot of our DRP Project">
+                <p>
+                    Our group decided to create a web application called ASKareers, which helps students find industry alumni and mentors. The application allows students to search for alumni and mentors based on their industry, company, and university. The application also allows students to chat with alumni and mentors in real-time. Feedback from students and alumni was very positive.
+                </p>
+                <p>
+                    In terms of the technology, I was responsible for project management and overall architecture, as well as designing the chat and search systems. One other member of the group was tasked with our authentication, and two members worked on profile creation and viewing. We used a number of technologies, including HTML, CSS, JavaScript, Python, and WebSockets. We also used a number of libraries, including Bootstrap and Flask. In terms of our infrastructure, we used profile embeddings stored in Milvus vector stores, chats and profiles stored in MongoDB Atlas databases, authentication in MySQL databases, profile image storage in AWS S3 buckets, and the application itself was hosted on Heroku.
+                </p>
+                <div class="subtitle">
+                    Search Implementation
+                </div>
+                <p>
+                Our search system was designed to be as intelligent as possible, and to be as easy to use as possible. We wanted to make it easy for students to find the right alumni and mentors for them, and to make it easy for alumni and mentors to be found. To do this, we decided to use a number of state-of-the-art NLP techniques, including keyword extraction, embeddings, and vector stores.
+                </p>
+                <p>
+                Mentor profiles, when created on our system, first have their keywords extracted, which are then vectorised. We chose to extract keywords as mentor resumes and job descriptions are typically differently formatted, with the skill-related keywords being the main relevant overlaps, so it makes sense to extract and compare these keywords. We used OpenAI's embedding model to vectorise the keywords, as it is a state-of-the-art model that is trained on a very large dataset. We then stored the vectorised keywords in a Milvus vector store, which is a database designed for storing vectors. We chose to use a vector store as it allows us to perform vector operations, such as cosine similarity (which we chose for our vector search as it is standard in NLP applications).
+                </p>
+                <div class="subtitle">
+                    Chat Implementation
+                </div>
+                <p>
+                We used WebSockets (specifically Socket.io) to implement our chat system. We chose to use WebSockets as they allow for real-time communication between users, which is essential for a chat system. We also chose to use Socket.io as it is a provides a lot of room-related functionalities which we considered extending into for future improvements. We used MongoDB Atlas to store our chats, as it is a very popular NoSQL database, and it is very easy to use.
+                </p>
+                <div class="subtitle">
+                    Individual Learning and Growth
+                </div>
+                <p>
+                    This project was an opportunity for me to learn a wide variety of technologies and skills - from vector stores and web sockets to software architecture to project management. It was my first time designing such a complex web application from scratch. Working with a team who had no prior web development experience was also extremely interesting, and I learned a lot about how to work with people who have different skill sets and different ways of thinking. I also learned a lot about how to manage a project, and how to work with a team to create a product that people actually want to use.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="page-title">
+    WACC Compiler
+</div>
+<div class="slide center-justify">
+    <div class="slide-container center-justify">
+        <div class="content-category">
+            <div class="subtitle" style="text-align: center">
+                <i>
+                    A compiler for the WACC programming language, written in Kotlin
+                </i>
+            </div>
+            <br/>
+            <div style="text-align: center">
+                Skills: Computer Science, Kotlin, Git, Programming, Teamwork, DevOps
+            </div>
+            <br/><br/>
+            <div class="project-text">
+                <div class="subtitle">
+                    The short version
+                </div>
+                <ul>
+                    <li>
+                        Built a compiler for the WACC programming language
+                    </li>
+                    <li>
+                        Built an assembly emulator to test the compiler at each stage of development
+                    </li>
+                </ul>
+                <div class="subtitle">
+                    Introduction
+                </div>
+                <p>
+                    WACC is a programming language in the While family of languages (with some syntax relatively similar to C). The compiler was built as part of a group project for the COMP5206 course at Imperial College London. The compiler was built in Kotlin, and was tested using an assembly emulator, as well as automated tests, written in Kotlin. The compiler was built over the course of 2 months, and was split into a front-end and a back-end part. The front-end part was responsible for parsing the WACC code, and generating an abstract syntax tree (AST). The back-end part was responsible for generating ARM assembly code from the AST.
+                </p>
+                <div class="subtitle">
+                    Implementation
+                </div>
+                <p>
+                    For the front-end, we used the ANTLR4 parser generator to generate a lexer and parser for the WACC language, based on the syntactic rules of WACC, roughly in Backus-Naur Form (BNF). We then used the generated lexer and parser to generate a parse tree. We used a visitor pattern to walk the parse tree, and generate the AST. At the same time, we also used a symbol table to keep track of the variables in scope, and their types. We also used a stack to keep track of the variables in scope, and their offsets from the stack pointer. This allowed us to perform semantic analysis on the AST, and to generate error messages for semantic errors. The generated symbol tables were passed to the backend, along with the AST.
+                </p>
+                <p>
+                    For the back-end, we used another visitor pattern to walk the AST, and generate ARM assembly code. We used a register allocator to allocate registers to variables, and to spill registers to the stack when necessary. We also had to create an object-oriented library of ARM assembly code, to allow us to use ARM instructions as objects. We also had to write a library of ARM assembly code to handle the runtime of the program, such as printing to the console, reading from the console, and allocating memory on the heap.
+                </p>
+                <p>
+                    During the backend, we also were assessed on our use of CI/CD to automate the testing and integration of our compiler. We created our own test suite to run with GitLab CI, for which I even wrote a whole ARM assembly emulator in Kotlin, to test the generated assembly code.
+                </p>
+                <div class="subtitle">
+                    Individual Learning and Growth
+                </div>
+                <p>
+                    During the project, I gained a much greater appreciation for Kotlin as a language, as well as the work that compiler engineers do. I also learned a lot about compilers and how they work, from a more hands-on perspective, which, in turn, taught me a lot about how programming languages work. I also learned a lot about how to work in a team, and how to use GitLab CI to automate the testing and integration of a project.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

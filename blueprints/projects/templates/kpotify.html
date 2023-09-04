@@ -1,0 +1,63 @@
+<div class="page-title">
+    KPotify
+</div>
+<div class="slide center-justify">
+    <div class="slide-container center-justify">
+        <div class="content-category">
+            <div class="subtitle" style="text-align: center">
+                <i>
+                    A Keypirinha plugin that allows you to control Spotify from Keypirinha
+                </i>
+            </div>
+            <br/>
+            <div style="text-align: center">
+                Skills: Computer Science, Python, Programming
+            </div>
+            <br/><br/>
+            <div class="project-text">
+                <div class="subtitle">
+                    The short version
+                </div>
+                <ul>
+                    <li>
+                        Created a Keypirinha plugin that allows you to control Spotify from Keypirinha
+                    </li>
+                    <li>
+                        Worked around running on a restricted subset of Python interpreter
+                    </li>
+                    <li>
+                        Implemented API calls to Spotify's Web API
+                    </li>
+                </ul>
+                <div class="subtitle">
+                    Introduction
+                </div>
+                <p>
+                    Keypirinha is a fast keystroke launcher (think Spotlight for Mac) for Windows that allows you to quickly find and launch programs and files. It is highly customisable, and allows you to create Python plugins to extend its functionality. I created a plugin that allows you to control Spotify from Keypirinha. This plugin allows you to search for songs, artists, and albums, and play them in Spotify. It also allows you to control playback, such as play, pause, and skip.
+                </p>
+                <img src="https://ridicidw.sirv.com/blog-photos/kpotify-dandelions.png" width="40%" class="left-wrap-img" alt="A screenshot showing a user searching for the song 'Dandelions' with Kpotify"/>
+                <div class="subtitle">
+                    Implementation
+                </div>
+                <p>
+                Keypirinha requires a few APIs that the plugin must implement, allowing for the user to search for and execute items. This was done without very much challenge. Most of the controls were also relatively easy to implement, as they were simply API calls to Spotify's Web API.
+                </p>
+                <p>
+                The main challenge was that Keypirinha runs on a restricted subset of the Python interpreter, and does not allow for the use of many libraries. I had to find a way to port many of the libraries that I wanted to use to the restricted subset of Python. This forced me to delve into the source code of many of the libraries that I wanted to use, including some like Requests that I had often taken for granted, and I learned a lot about how they worked.
+                </p>
+                <p>
+                Another challenge was that the Spotify Web API requires authentication, and I had to find a way to authenticate the user. I ended up using the Authorization Code Flow, which required me to create a web server that would receive the authentication code from Spotify, and then exchange it for an access token.
+                </p>
+                <p>
+                Finally, one challenge that am still working on is that each plugin is single-threaded, so running many I/O-blocked operations (e.g. downloading the album art for all the songs in the search) can become extremely slow. I have been trying to find a way to create user-level threading for these kinds of operations in Python.
+                </p>
+                <div class="subtitle">
+                    Individual Learning and Growth
+                </div>
+                <p>
+                    This project was an opportunity to have fun in Python while also automating a task that I do often. I learned a lot about how Python libraries work, and how to port them to a restricted subset of Python. I also learned a lot about how to use the Spotify Web API, and how to authenticate users. Finally, I learned a lot about how to use Keypirinha, and how to create plugins for it.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
